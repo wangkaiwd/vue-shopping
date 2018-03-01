@@ -12,7 +12,7 @@ import index from "../http/mock";
 export default {
   data() {
     return {
-        swiperData: [],
+      swiperData: []
     };
   },
   created() {
@@ -21,8 +21,7 @@ export default {
   methods: {
     getSwiperData() {
       this.$axios.get("/index/swiper").then(({ data }) => {
-        // console.log(data);
-        this.swiperData = data;
+        this.swiperData = data.swiperList;
       });
     }
   },

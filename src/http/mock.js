@@ -6,9 +6,17 @@ index.swiperData = Mock.mock('http://api.com/index/swiper', {
   // mock图片参数：size,background,foreground（前景色：文字颜色）,format(图片格式'png','jpg','gif'),text(图片文字)
   'swiperList|5': [{
     'id|+1': 1,
-    'imgPath': '@image("800*400","#04a1f7","#fff","png","")',
+    'imgPath': '@image("800*400","#04a1f7","#FFF","png","")',
   }]
 
 });
 
+Mock.mock('http://api.com/index/swiper1', {
+  // mock图片参数：size,background,foreground（前景色：文字颜色）,format(图片格式'png','jpg','gif'),text(图片文字)
+  'swiperList|5': [{
+    'id|+1': 1,
+    'imgPath': '@image("800*400","#04a1f7","#FFF","png","")',
+  }]
+
+});
 export default index;
