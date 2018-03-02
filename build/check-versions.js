@@ -1,24 +1,33 @@
 'use strict'
+// chalk:用来在命令行输出不同颜色文字的包，可以使用chalk.yellow("想添加颜色的文字...")
+// 来实现改变文字颜色的
 const chalk = require('chalk')
+// semver:语义化版本文件的npm包，用来控制版本
 const semver = require('semver')
 const packageConfig = require('../package.json')
+// 用来执行unix命令的包
 const shell = require('shelljs')
 
+// child_process是Node.js提供了衍生子进程功能的模块，execSync()方法同步执行一个cmd命令
+// 将返回值调用toString和trim方法
 function exec (cmd) {
   return require('child_process').execSync(cmd).toString().trim()
 }
 
 const versionRequirements = [
+  // semver.clean()方法返回一个标准的版本号，切去掉俩边空格，比如semver.clean(" =v1.2.3 ")
+  // 返回1.2.3
   {
     name: 'node',
     currentVersion: semver.clean(process.version),
     versionRequirement: packageConfig.engines.node
   }
 ]
-
+// shell.which是去环境变量搜索有没有参数这个命令
 if (shell.which('npm')) {
   versionRequirements.push({
     name: 'npm',
+    // 执行 'npm --version'命令
     currentVersion: exec('npm --version'),
     versionRequirement: packageConfig.engines.npm
   })
