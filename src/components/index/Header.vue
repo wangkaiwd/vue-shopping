@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <mt-header title="电商联盟">
+        <mt-header class="header-title" :title="headerTitle">
             <router-link to="/" slot="left">
                 <!-- <mt-button icon="back">返回</mt-button> -->
             </router-link>
@@ -10,9 +10,17 @@
 </template>
 
 <script>
-export default {};
+export default {
+    props:['headerTitle']
+};
 </script>
 
-<style>
-
+<style lang="less" scoped>
+    .header {
+        font-size: 18px;
+        .mint-header {
+            background-color: #fff;
+            color: #000;
+        }
+    }
 </style>

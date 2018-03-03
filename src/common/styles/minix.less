@@ -1,0 +1,48 @@
+// less混合器语法：
+// 解决移动端1px边框问题
+// 移动端window对象有个devicePixelRatio属性，它表示设备物理像素和css像素的比例
+// 在retina屏的iphone手机上，这个值为2或3，css里写的1px长度映射到物理像素上就有2px或3px那么长
+// iphone: 2px;     iphone plus: 3px;
+// 解决方法
+.border-1px(@color) {
+    position: relative;
+    &:after {
+        content: ' ';
+        position: absolute;
+        display: block;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        border-top: 1px solid @color;
+    }
+}
+
+
+// 字体大小的处理
+.fz(@name, @px){
+    // round()方法：对里面的内容进行四舍五入取整
+    // 参数：1.数字 2.取整的位数
+    // round(1.67)  //2
+    // round(1.67,1) //1.7
+    @{name}: round(@px / 2) * 1px;
+    [data-dpr="2"] & {
+        @{name}: @px * 1px;
+    }
+    [data-dpr="2.5"] & {
+        @{name}: round(@px * 2.5 / 2) * 1px;
+    }
+    [data-dpr="2.75"] & {
+        @{name}: round(@px * 2.75 / 2) * 1px;
+    }
+    [data-dpr="3"] & {
+        @{name}: round(@px * 3 / 2 ) * 1px
+    }
+    [data-dpr="4"] & {
+        @{name}: @px * 2px;
+    }
+}
+
+// 每一个section的上边距
+.pt() {
+    padding-top: 0.5333rem;
+}

@@ -33,17 +33,18 @@ exports.cssLoaders = function (options) {
       sourceMap: options.sourceMap
     }
   }
-  const px2remLoader = {
-    loader: 'px2rem-loader',
-    options: {
-      // 设计稿宽度/10
-      remUnit: 75
-    }
-  }
+  // const px2remLoader = {
+  //   loader: 'px2rem-loader',
+  //   options: {
+  //     // 设计稿宽度/10
+  //     remUnit: 75
+  //   }
+  // }
 
   // generate loader string to be used with extract text plugin
   function generateLoaders(loader, loaderOptions) {
-    const loaders = options.usePostCSS ? [cssLoader, postcssLoader, px2rem - loader] : [cssLoader, px2rem - loader]
+    // const loaders = options.usePostCSS ? [cssLoader, postcssLoader, px2remLoader] : [cssLoader, px2remLoader]
+    const loaders = options.usePostCSS ? [cssLoader, postcssLoader] : [cssLoader]
     if (loader) {
       loaders.push({
         loader: loader + '-loader',

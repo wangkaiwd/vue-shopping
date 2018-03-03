@@ -4,19 +4,18 @@ import Mock from 'mockjs';
 const index = {};
 index.swiperData = Mock.mock('http://api.com/index/swiper', {
   // mock图片参数：size,background,foreground（前景色：文字颜色）,format(图片格式'png','jpg','gif'),text(图片文字)
-  'swiperList|5': [{
+  // text不写的话默认为size
+  'swiperList|4': [{
     'id|+1': 1,
-    'imgPath': '@image("800*400","#04a1f7","#FFF","png","")',
+    'imgPath': '@image("800x400","#04a1f7","#FFF","jpg","")',
   }]
-
 });
 
-Mock.mock('http://api.com/index/swiper1', {
-  // mock图片参数：size,background,foreground（前景色：文字颜色）,format(图片格式'png','jpg','gif'),text(图片文字)
-  'swiperList|5': [{
+index.section1Data = Mock.mock('http://api.com/index/section1',{
+  'section1List|4':[{
     'id|+1': 1,
-    'imgPath': '@image("800*400","#04a1f7","#FFF","png","")',
-  }]
-
-});
+    'imgPath': '@image("400x400","#b7ddf2","#333","jpg","")',
+  }],
+  'banner':'@image("400x100","#b97cc9","#FFF","jpg","1-banner")'
+})
 export default index;

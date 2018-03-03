@@ -268,10 +268,12 @@ body {
   -webkit-user-select: none;
   user-select: none;
   font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
+  color: #666;
 }
 /* 禁止长按链接与图片弹出菜单 */
 a,
 img {
+  vertical-align: top;
   -webkit-touch-callout: none;
 }
 /*ios android去除自带阴影的样式*/
@@ -281,4 +283,20 @@ input {
 }
 input[type="text"] {
   -webkit-appearance: none;
+}
+.icon {
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.15em;
+  fill: currentColor;
+  overflow: hidden;
+}
+.clearfix:after,
+.clearfix:before {
+  content: '';
+  display: block;
+  clear: both;
+}
+.clearfix {
+  *zoom: 1;
 }

@@ -322,7 +322,8 @@ body {
     /* 禁止选中文本 */
     -webkit-user-select: none;
     user-select: none;
-    font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif
+    font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
+    color: #666;
 }
 
 
@@ -330,6 +331,7 @@ body {
 
 a,
 img {
+    vertical-align: top;
     -webkit-touch-callout: none;
 }
 
@@ -343,4 +345,24 @@ input {
 
 input[type="text"] {
     -webkit-appearance: none;
+}
+
+// 字体图标通用样式配置
+.icon {
+    width: 1em;
+    height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+// 清除浮动
+.clearfix:after,
+.clearfix:before {
+    content: '';
+    display: block;
+    clear: both;
+}
+.clearfix {
+    *zoom: 1;
 }
