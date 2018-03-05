@@ -17,12 +17,18 @@ Vue.use( Vue => {
 // 引入初始化css
 import './common/styles/root.less';
 // 引入mint-ui(全部引入)
-import MintUI from 'mint-ui'
-import 'mint-ui/lib/style.css'
+import MintUI from 'mint-ui';
+import 'mint-ui/lib/style.css';
 
 Vue.config.productionTip = false
 
 Vue.use(MintUI)
+
+// 定义一个全局的过滤器来处理人民币
+// 第一个参数默认为要处理的内容
+Vue.filter("currency",(val) => {
+    return `$${val}`;
+});
 
 const vm = new Vue({
     el:"#app",

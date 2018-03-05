@@ -273,6 +273,8 @@ a,
 img {
   vertical-align: top;
   -webkit-touch-callout: none;
+  width: 100%;
+  height: 100%;
 }
 /*ios android去除自带阴影的样式*/
 a,

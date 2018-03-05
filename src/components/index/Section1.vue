@@ -60,10 +60,7 @@ export default {
   .section1-banner {
     margin-top: 0.16rem;
     height: 2.6667rem;
-  }
-  img {
-    width: 100%;
-    height: 100%;
+    border-bottom: 1px solid rgba(185, 185, 185, 0.14);
   }
 }
 </style>
