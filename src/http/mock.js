@@ -36,10 +36,20 @@ const index = Mock.mock('http://api.com/index', {
       "imgPath": "@image('320x200','#f5f2a5','#333','jpg','')",
       "price": "@integer(99,1000)",
       "goodsName":"@first",
-      "goodsTime":"",
-      "startTime":"",
-    }]
+      "startTime":"@time(HH:mm)",
+    }],
+    "banner": "@image('400x100','#30f673','#FFF', 'jpg', '3-banner')"
   },
+  "section4": {
+    "section4List|8":[{
+      "id|+1": 1,
+      "goodsName": "@last",
+      "goodsPrice": "@integer(99,999)",
+      "imgPath": "@image('400x400','#e2f630', '#333', 'jpg','')",
+      "goodsInfo": "@paragraph",
+    }],
+    "banner": "@image('400x100','#ffcc33','#FFF', 'jpg', '4-banner')"
+  }
 
 });
 export default index;

@@ -19,10 +19,6 @@
 import Icon from "@/public/Icon.vue";
 export default {
   props: ["toSection1"],
-  // updated() {
-  //   console.log(111);
-  //   console.log(this.toSection1);
-  // },
   components: {
     "v-icon": Icon
   }

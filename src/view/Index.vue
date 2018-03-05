@@ -1,11 +1,13 @@
 <template>
     <div class="index">
-        <v-header headerTitle="电子商城"></v-header>
+        <v-header headerTitle="移动商城"></v-header>
         <v-swiper :toSwiperData='swiperData'></v-swiper>
         <v-service></v-service>
         <v-section1 :toSection1='section1Data'></v-section1>
         <v-section2 :toSection2='section2Data'></v-section2>
         <v-section3 :toSection3='section3Data'></v-section3>
+        <v-section4 :toSection4='section4Data'></v-section4>
+        <v-baseline></v-baseline>
     </div>
 </template>
 
@@ -16,6 +18,8 @@ import Service from "@/components/index/Service.vue";
 import Section1 from "@/components/index/Section1.vue";
 import Section2 from "@/components/index/Section2.vue";
 import Section3 from "@/components/index/Section3.vue";
+import Section4 from "@/components/index/Section4.vue";
+import Baseline from "@/public/Baseline.vue";
 // mock数据
 import index from "../http/mock";
 
@@ -26,6 +30,7 @@ export default {
       section1Data: {},
       section2Data: {},
       section3Data: {},
+      section4Data: {},
     };
   },
   created() {
@@ -38,7 +43,7 @@ export default {
         this.section1Data = data.section1;
         this.section2Data = data.section2;
         this.section3Data = data.section3;
-        console.log(data);
+        this.section4Data = data.section4;
       });
     },
   },
@@ -50,6 +55,8 @@ export default {
     "v-section1": Section1,
     "v-section2": Section2,
     "v-section3": Section3,
+    "v-section4": Section4,
+    "v-baseline": Baseline,
   }
 };
 </script>
