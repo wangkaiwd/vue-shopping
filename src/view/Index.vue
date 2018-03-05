@@ -1,9 +1,8 @@
 <template>
     <div class="index">
-        <v-header headerTitle="电商联盟"></v-header>
+        <v-header headerTitle="电子商城"></v-header>
         <v-swiper :toSwiperData='swiperData'></v-swiper>
         <v-service></v-service>
-        <!-- <div class="space"></div> -->
         <v-section1 :toSection1='section1Data'></v-section1>
     </div>
 </template>
@@ -24,21 +23,16 @@ export default {
     };
   },
   created() {
-    this.getSwiperData();
-    this.getSection1Data();
+    this.getIndexData();
   },
   methods: {
-    getSwiperData() {
-      this.$axios.get("/index/swiper").then(({ data }) => {
-        this.swiperData = data.swiperList;
+    getIndexData() {
+      this.$axios.get("/index").then(({ data }) => {
+        this.swiperData = data.swiper;
+        this.section1Data = data.section1;
+        console.log(data);
       });
     },
-    getSection1Data() {
-      this.$axios.get("/index/section1").then(({ data }) => {
-        this.section1Data = data;
-        // console.log(data);
-      });
-    }
   },
   // 组件用-隔开必须加引号
   components: {

@@ -3,7 +3,7 @@
         <mt-swipe :auto="4000">
             <!-- <mt-swipe-item v-for="item in toSwiperData" :key="item.id"><img v-bind='{src:"/static/0"+item.id+".jpg"}' alt=""></mt-swipe-item> -->
             <!-- 如果v-bind绑定的内容中涉及到字符串和变量，v-bind不能简写，并以对象的形式绑定 -->
-            <mt-swipe-item v-for="item in toSwiperData" :key="item.id" v-if="toSwiperData">
+            <mt-swipe-item v-for="item in toSwiperData.swiperList" :key="item.id" v-if="toSwiperData">
               <img :src="item.imgPath" alt="">
             </mt-swipe-item>
         </mt-swipe>
@@ -12,7 +12,7 @@
 
 <script>
 export default {
-  props: ["toSwiperData"]
+  props: ["toSwiperData"],
   // 要在页面元素更新成功后在进行调用
   // updated () {
   //     console.log(this.toSwiperData);

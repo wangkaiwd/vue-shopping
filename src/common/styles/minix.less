@@ -18,31 +18,49 @@
 }
 
 
-// 字体大小的处理
-.fz(@name, @px){
-    // round()方法：对里面的内容进行四舍五入取整
-    // 参数：1.数字 2.取整的位数
-    // round(1.67)  //2
-    // round(1.67,1) //1.7
-    @{name}: round(@px / 2) * 1px;
+// // 字体大小的处理
+// .fz(@name, @px){
+//     // less语法
+//     // round()方法：对里面的内容进行四舍五入取整
+//     // 参数：1.数字 2.取整的位数
+//     // round(1.67)  //2
+//     // round(1.67,1) //1.7
+
+//     // 安卓版本较多，兼容复杂
+//     // 
+//     @{name}: round(@px / 2) * 1px;
+//     // [data-dpr="2"]下的父元素
+//     // 例：[data-dpr="2"] div: [data-dpr="2"]下的div
+//     [data-dpr="2"] & {
+//         @{name}: @px * 1px;
+//     }
+//     // [data-dpr="2.5"] & {
+//     //     @{name}: round(@px * 2.5 / 2) * 1px;
+//     // }
+//     // [data-dpr="2.75"] & {
+//     //     @{name}: round(@px * 2.75 / 2) * 1px;
+//     // }
+//     [data-dpr="3"] & {
+//         @{name}: round(@px * 3 / 2 ) * 1px
+//     }
+//     // [data-dpr="4"] & {
+//     //     @{name}: @px * 2px;
+//     // }
+// }
+
+// 文本使用px作为单位，使用[data-dpr]属性来区分不同dpr下的文本字号大小
+.font-dpr (@font-size) {
+    font-size: @font-size;
     [data-dpr="2"] & {
-        @{name}: @px * 1px;
-    }
-    [data-dpr="2.5"] & {
-        @{name}: round(@px * 2.5 / 2) * 1px;
-    }
-    [data-dpr="2.75"] & {
-        @{name}: round(@px * 2.75 / 2) * 1px;
+        font-size: @font-size*2px;
     }
     [data-dpr="3"] & {
-        @{name}: round(@px * 3 / 2 ) * 1px
-    }
-    [data-dpr="4"] & {
-        @{name}: @px * 2px;
+        font-size: @font-size*3px;
     }
 }
+// 如果需要根据不同终端进行适配，也可以使用rem来作为计量单位
 
 // 每一个section的上边距
-.pt() {
-    padding-top: 0.5333rem;
+.spt() {
+    padding-top: 0.6667rem;
 }

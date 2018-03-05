@@ -7,9 +7,6 @@ html {
   -webkit-text-size-adjust: 100%;
   /* 2 */
 }
-body {
-  margin: 0;
-}
 article,
 aside,
 footer,
@@ -269,6 +266,7 @@ body {
   user-select: none;
   font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
   color: #666;
+  padding-bottom: 1.0667rem;
 }
 /* 禁止长按链接与图片弹出菜单 */
 a,

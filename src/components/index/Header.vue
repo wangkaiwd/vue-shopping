@@ -15,9 +15,11 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
     .header {
-        font-size: 18px;
+        .mint-header-title {
+            font-size: 18px;
+        }
         .mint-header {
             background-color: #fff;
             color: #000;
