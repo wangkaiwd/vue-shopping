@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import Icon from "@/public/Icon.vue";
+import Icon from "@/public/_icon.vue";
 export default {
   props: ["toSection4"],
   components: {

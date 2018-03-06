@@ -35,13 +35,13 @@ const index = Mock.mock('http://api.com/index', {
       "id|+1": 1,
       "imgPath": "@image('320x200','#f5f2a5','#333','jpg','')",
       "price": "@integer(99,1000)",
-      "goodsName":"@first",
-      "startTime":"@time(HH:mm)",
+      "goodsName": "@first",
+      "startTime": "@time(HH:mm)",
     }],
     "banner": "@image('400x100','#30f673','#FFF', 'jpg', '3-banner')"
   },
   "section4": {
-    "section4List|8":[{
+    "section4List|8": [{
       "id|+1": 1,
       "goodsName": "@last",
       "goodsPrice": "@integer(99,999)",
@@ -52,7 +52,21 @@ const index = Mock.mock('http://api.com/index', {
   }
 
 });
-export default index;
+
+const category = Mock.mock('http://api.com/category', {
+  "aside|20": [{
+    "id|+1": 1,
+    // 一级分类名称
+    "title": '@cname',
+    // 二级分类内容
+    "list|20-40": [{
+      "id|+1": 1,
+      "title": "@cname",
+      "imgPath": "@image('200x200','#5169b4','#FFF','jpg','')"
+    }]
+  }]
+});
+export {index,category};
 
 // export default 和 export 的区别：
 // export default:

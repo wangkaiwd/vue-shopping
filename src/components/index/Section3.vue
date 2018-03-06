@@ -55,13 +55,6 @@ export default {
         this.s = s;
       }, 1000);
     }
-  },
-  watch: {
-    nowTime(newval, oldval) {
-      console.log("watch----------");
-      console.log(newval, oldval);
-      //   this.getNowTime();
-    }
   }
 };
 </script>

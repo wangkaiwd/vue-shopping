@@ -7,6 +7,7 @@ import VueRouter from 'vue-router';
 Vue.use(VueRouter);
 
 const router = new VueRouter({
+    linkActiveClass: "active",
     routes,
 })
 export default router;

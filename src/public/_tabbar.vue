@@ -2,12 +2,16 @@
     <div class="shop-footer">
         <mt-tabbar v-model="selected" fixed>
             <mt-tab-item id="首页">
-                <v-icon class="footer-icon" iconText="icon-homepage"></v-icon>
-                首页
+                <router-link to="/" exact>
+                    <v-icon class="footer-icon" iconText="icon-homepage"></v-icon>
+                    首页
+                </router-link>
             </mt-tab-item>
             <mt-tab-item id="分类">
-                <v-icon class="footer-icon" iconText="icon-manage"></v-icon>
-                分类
+                <router-link to="/category">
+                    <v-icon class="footer-icon" iconText="icon-manage"></v-icon>
+                    分类
+                </router-link>
             </mt-tab-item>
             <mt-tab-item id="购物车">
                 <v-icon class="footer-icon" iconText="icon-gouwuche"></v-icon>
@@ -22,7 +26,7 @@
 </template>
 
 <script>
-import Icon from "@/public/Icon.vue";
+import Icon from "@/public/_icon.vue";
 export default {
   data() {
     return {

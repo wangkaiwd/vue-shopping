@@ -266,7 +266,7 @@ body {
   user-select: none;
   font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
   color: #666;
-  padding-bottom: 1.28rem;
+  padding-bottom: 1.16rem;
 }
 /* 禁止长按链接与图片弹出菜单 */
 a,
@@ -275,6 +275,8 @@ img {
   -webkit-touch-callout: none;
   width: 100%;
   height: 100%;
+  text-decoration: none;
+  color: #666;
 }
 /*ios android去除自带阴影的样式*/
 a,
@@ -299,4 +301,8 @@ input[type="text"] {
 }
 .clearfix {
   *zoom: 1;
+}
+.active {
+  color: #ffaa00;
+  text-decoration: none;
 }

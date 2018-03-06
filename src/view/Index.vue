@@ -1,6 +1,5 @@
 <template>
     <div class="index">
-        <v-header headerTitle="移动商城"></v-header>
         <v-swiper :toSwiperData='swiperData'></v-swiper>
         <v-service></v-service>
         <v-section1 :toSection1='section1Data'></v-section1>
@@ -13,15 +12,15 @@
 
 <script>
 import Header from "@/components/index/Header.vue";
-import Swiper from "@/components/index/Swiper.vue";
+import Swiper from "@/public/_swiper.vue";
 import Service from "@/components/index/Service.vue";
 import Section1 from "@/components/index/Section1.vue";
 import Section2 from "@/components/index/Section2.vue";
 import Section3 from "@/components/index/Section3.vue";
 import Section4 from "@/components/index/Section4.vue";
-import Baseline from "@/public/Baseline.vue";
+import Baseline from "@/public/_baseline.vue";
 // mock数据
-import index from "../http/mock";
+import {index} from "../http/mock";
 
 export default {
   data() {
