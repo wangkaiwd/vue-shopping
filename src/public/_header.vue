@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <mt-header title="移动商城">
+        <mt-header fixed title="移动商城">
         <!-- <router-link to="/" slot="left">
             <mt-button icon="back">back</mt-button>
         </router-link>
@@ -15,6 +15,7 @@ export default {};
 
 <style lang="less" scoped>
 .header {
+  height: 1.0667rem;
   .mint-header-title {
     font-size: 18px;
   }

@@ -1,12 +1,13 @@
 <template>
-    <div class="index">
-        <v-swiper :toSwiperData='swiperData'></v-swiper>
-        <v-service></v-service>
-        <v-section1 :toSection1='section1Data'></v-section1>
-        <v-section2 :toSection2='section2Data'></v-section2>
-        <v-section3 :toSection3='section3Data'></v-section3>
-        <v-section4 :toSection4='section4Data'></v-section4>
-        <v-baseline></v-baseline>
+    <div class="index pb">
+      <v-header></v-header>
+      <v-swiper :toSwiperData='swiperData'></v-swiper>
+      <v-service></v-service>
+      <v-section1 :toSection1='section1Data'></v-section1>
+      <v-section2 :toSection2='section2Data'></v-section2>
+      <v-section3 :toSection3='section3Data'></v-section3>
+      <v-section4 :toSection4='section4Data'></v-section4>
+      <v-baseline></v-baseline>
     </div>
 </template>
 

@@ -1,6 +1,5 @@
 <template>
-    <div>
-        <v-header></v-header>
+    <div class="root">
         <router-view></router-view>
         <v-tabbar></v-tabbar>
     </div>
@@ -17,6 +16,14 @@ export default {
 };
 </script>
 
-<style lang="less" scoped>
-
+<style lang="less">
+body,
+html,
+#app {
+  width: 100%;
+  height: 100%;
+}
+.root {
+  height: 100%;
+}
 </style>

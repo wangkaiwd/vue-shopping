@@ -14,11 +14,11 @@ import { category } from "@/http/mock.js";
 export default {
   data() {
     return {
-        asideData: [],
+      asideData: []
     };
   },
   created() {
-      this.getCategoryData();
+    this.getCategoryData();
   },
   components: {
     "v-category-info": CategoryInfo
@@ -27,12 +27,15 @@ export default {
     getCategoryData() {
       this.$axios.get("/category").then(({ data }) => {
         //   console.log(data);
-          this.asideData = data.aside;
+        this.asideData = data.aside;
       });
     }
   }
 };
 </script>
 <style>
-
+.shop-category {
+  width: 100%;
+  height: 100%;
+}
 </style>

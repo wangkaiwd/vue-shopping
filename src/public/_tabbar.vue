@@ -18,8 +18,10 @@
                 购物车
             </mt-tab-item>
             <mt-tab-item id="我的">
-                <v-icon class="footer-icon" iconText="icon-wode"></v-icon>
-                我的
+                <router-link to="/mine">
+                    <v-icon class="footer-icon" iconText="icon-wode"></v-icon>
+                    我的
+                </router-link>
             </mt-tab-item>
         </mt-tabbar>
     </div>

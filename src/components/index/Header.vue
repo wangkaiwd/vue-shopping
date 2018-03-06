@@ -1,6 +1,6 @@
 <template>
     <div class="header">
-        <mt-header class="header-title" :title="headerTitle">
+        <mt-header class="header-title" title="移动商城">
             <router-link to="/" slot="left">
             </router-link>
         </mt-header>

@@ -266,7 +266,6 @@ body {
   user-select: none;
   font: Oswald, 'Open Sans', Helvetica, Arial, sans-serif;
   color: #666;
-  padding-bottom: 1.16rem;
 }
 /* 禁止长按链接与图片弹出菜单 */
 a,
@@ -305,4 +304,7 @@ input[type="text"] {
 .active {
   color: #ffaa00;
   text-decoration: none;
+}
+.pb {
+  padding-bottom: 1.65rem;
 }
