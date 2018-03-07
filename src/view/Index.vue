@@ -8,6 +8,7 @@
       <v-section3 :toSection3='section3Data'></v-section3>
       <v-section4 :toSection4='section4Data'></v-section4>
       <v-baseline></v-baseline>
+      <v-tabbar></v-tabbar>
     </div>
 </template>
 
@@ -20,6 +21,7 @@ import Section2 from "@/components/index/Section2.vue";
 import Section3 from "@/components/index/Section3.vue";
 import Section4 from "@/components/index/Section4.vue";
 import Baseline from "@/public/_baseline.vue";
+import Tabbar from "@/public/_tabbar.vue";
 // mock数据
 import {index} from "../http/mock";
 
@@ -34,7 +36,7 @@ export default {
     };
   },
   created() {
-    this.getIndexData();
+    this.getIndexData();;
   },
   methods: {
     getIndexData() {
@@ -57,6 +59,7 @@ export default {
     "v-section3": Section3,
     "v-section4": Section4,
     "v-baseline": Baseline,
+    "v-tabbar": Tabbar,
   }
 };
 </script>

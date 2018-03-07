@@ -1,27 +1,46 @@
 <template>
     <div class="header">
-        <mt-header fixed title="移动商城">
-        <!-- <router-link to="/" slot="left">
-            <mt-button icon="back">back</mt-button>
-        </router-link>
-        <mt-button icon="more" slot="right"></mt-button> -->
-        </mt-header>
+        <header class="otherheader">
+            <v-icon 
+              @click.native="$router.go(-1)" 
+              class="otherheader-icon" 
+              iconText="icon-fanhui">
+            </v-icon>
+            <slot name="title"></slot>
+        </header>
     </div>
 </template>
-
 <script>
-export default {};
+import Icon from "./_icon.vue";
+export default {
+  components: {
+    "v-icon": Icon
+  },
+};
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .header {
-  height: 1.0667rem;
-  .mint-header-title {
+  .otherheader {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 1.12rem;
+    text-align: center;
+    line-height: 1.12rem;
+    background-color: #f8fcff;
+  }
+  .otherheader-icon {
+    position: absolute;
+    left: 0.5333rem;
+    top: 50%;
+    transform: translateY(-50%);
     font-size: 18px;
   }
-  .mint-header {
-    background-color: #F8FCFF;
-    color: #000;
+  h2 {
+    letter-spacing: 0.1067rem;
+    font-size: 20px;
   }
 }
 </style>

@@ -2,12 +2,13 @@
 import Index from '../view/Index.vue';
 import Category from '../view/Category.vue';
 import Mine from '../view/Mine.vue';
+import Shopcart from '../view/Shopcart.vue';
+import Login from '../view/Login.vue';
 
 const routes = [{
     name: 'index',
     path: '/',
     component: Index,
-    title: '首页',
   },
   {
     name: 'category',
@@ -18,7 +19,17 @@ const routes = [{
     name: 'mine',
     path: '/mine',
     component: Mine,
-  }
+  },
+  {
+    name: 'shopcart',
+    path: '/shopcart',
+    component: Shopcart,
+  },
+  {
+    name: 'login',
+    path: '/login',
+    component: Login,
+  },
 ]
 
 export default routes;

@@ -1,6 +1,9 @@
 <template>
-    <div class="shop-category">
-        <v-category-info :toCategoryInfo="asideData"></v-category-info>
+    <div class="shop-category pt">
+      <v-header>
+        <h2 slot="title">商品分类</h2>
+      </v-header>
+      <v-category-info :toCategoryInfo="asideData"></v-category-info>
     </div>
 </template>
 
@@ -21,7 +24,8 @@ export default {
     this.getCategoryData();
   },
   components: {
-    "v-category-info": CategoryInfo
+    "v-category-info": CategoryInfo,
+    "v-header": Header
   },
   methods: {
     getCategoryData() {

@@ -1,24 +1,27 @@
 <template>
     <div class="shop-footer">
         <mt-tabbar v-model="selected" fixed>
-            <mt-tab-item id="首页">
-                <router-link to="/" exact>
+            <mt-tab-item id="index">
+                <router-link :to="{path: '/'}" exact>
                     <v-icon class="footer-icon" iconText="icon-homepage"></v-icon>
                     首页
                 </router-link>
             </mt-tab-item>
-            <mt-tab-item id="分类">
-                <router-link to="/category">
+            <mt-tab-item id="category">
+                <router-link :to="{path: '/category'}">
                     <v-icon class="footer-icon" iconText="icon-manage"></v-icon>
                     分类
                 </router-link>
             </mt-tab-item>
-            <mt-tab-item id="购物车">
-                <v-icon class="footer-icon" iconText="icon-gouwuche"></v-icon>
-                购物车
+            <mt-tab-item id="shopcart" class="shop-footer-cart">
+                <router-link :to="{path:'/shopcart'}">
+                    <mt-badge class="badge" size="small" type="error">10</mt-badge>
+                    <v-icon class="footer-icon" iconText="icon-gouwuche"></v-icon>
+                    购物车
+                </router-link>
             </mt-tab-item>
-            <mt-tab-item id="我的">
-                <router-link to="/mine">
+            <mt-tab-item id="mine">
+                <router-link :to="{path: '/mine'}">
                     <v-icon class="footer-icon" iconText="icon-wode"></v-icon>
                     我的
                 </router-link>
@@ -37,20 +40,36 @@ export default {
   },
   components: {
     "v-icon": Icon
+  },
+  methods: {
   }
 };
 </script>
 
 <style lang="less" scoped>
 .shop-footer {
-    .footer-icon {
-        display: block;
-        font-size: 30px;
-        margin-bottom: 0.1333rem;
-    }
-    .mint-tabbar > .mint-tab-item.is-selected {
-        color: #ffaa00;
-        background-color: inherit;
-    }
+  .footer-icon {
+    display: block;
+    font-size: 30px;
+    margin-bottom: 0.1333rem;
+  }
+  .mint-tabbar > .mint-tab-item.is-selected {
+    color: #ffaa00;
+    background-color: inherit;
+  }
+  .shop-footer-cart {
+    position: relative;
+  }
+  .badge {
+    position: absolute;
+    right: 0.5rem;
+    top: 0.14rem;
+    border-radius: 50%;
+    padding: 0rem;
+    height: 0.46rem;
+    width: 0.46rem;
+    font-size: 12px;
+    line-height: 0.46rem;
+  }
 }
 </style>

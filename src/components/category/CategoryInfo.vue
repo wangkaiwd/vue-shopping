@@ -1,5 +1,5 @@
 <template>
-    <div class="category-info pb">
+    <div class="category-info">
         <div class="l-list">
             <ul>
                 <li 

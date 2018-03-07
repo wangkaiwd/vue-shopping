@@ -47,6 +47,7 @@ a {
   /* 1 */
   -webkit-text-decoration-skip: objects;
   /* 2 */
+  color: inherit;
 }
 abbr[title] {
   border-bottom: none;
@@ -275,7 +276,6 @@ img {
   width: 100%;
   height: 100%;
   text-decoration: none;
-  color: #666;
 }
 /*ios android去除自带阴影的样式*/
 a,
@@ -305,6 +305,9 @@ input[type="text"] {
   color: #ffaa00;
   text-decoration: none;
 }
+.pt {
+  padding-top: 1.12rem;
+}
 .pb {
-  padding-bottom: 1.65rem;
+  padding-bottom: 1.67rem;
 }

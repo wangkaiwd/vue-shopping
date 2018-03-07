@@ -5,7 +5,9 @@
                 <v-icon iconText="icon-shouye"></v-icon>
             </div>
             <div class="login">
-                登录/注册
+                <router-link to="/login">
+                    登录/注册
+                </router-link>
             </div>
         </div>
         <div class="order">
@@ -59,16 +61,19 @@
             </div>
         </div>
         <v-baseline></v-baseline>
+        <v-tabbar></v-tabbar>
     </div>
 </template>
 
 <script>
 import Icon from "@/public/_icon";
-import Baseline from "@/public/_baseline"
+import Baseline from "@/public/_baseline";
+import Tabbar from "@/public/_tabbar";
 export default {
   components: {
     "v-icon": Icon,
     "v-baseline": Baseline,
+    "v-tabbar": Tabbar,
   }
 };
 </script>
@@ -150,7 +155,7 @@ export default {
     font-size: 16px;
     line-height: 1.4933rem;
     &:last-child {
-        border-bottom: 1px solid rgba(185, 185, 185, 0.14);
+      border-bottom: 1px solid rgba(185, 185, 185, 0.14);
     }
   }
   .member-icon {
