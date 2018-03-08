@@ -1,0 +1,51 @@
+<template>
+    <div class="detail pb">
+        <v-swiper :swiper="swiperData"></v-swiper>
+        <v-select :select="selectData"></v-select>
+        <v-content :content="contentData"></v-content>
+        <v-baseline></v-baseline>
+        <v-footer></v-footer>
+    </div>
+</template>
+
+<script>
+import Swiper from "@/components/detail/Swiper.vue";
+import Select from "@/components/detail/Select.vue";
+import Content from "@/components/detail/Content.vue";
+import Baseline from "@/public/_baseline.vue";
+import Footer from "@/components/detail/Footer.vue";
+
+import { detail } from "@/http/mock.js";
+export default {
+  data() {
+    return {
+        swiperData: {},
+        contentData: {},
+        selectData: [],
+    };
+  },
+  created() {
+    this.getDetailData();
+  },
+  methods: {
+    getDetailData() {
+      this.$axios.get("/detail").then(({ data }) => {
+          this.swiperData = data.swiper;
+          this.contentData = data.content;
+          this.selectData = data.view;
+      });
+    }
+  },
+  components: {
+    "v-swiper": Swiper,
+    "v-content": Content,
+    "v-baseline": Baseline,
+    "v-footer": Footer,
+    "v-select": Select,
+  }
+};
+</script>
+
+<style>
+
+</style>

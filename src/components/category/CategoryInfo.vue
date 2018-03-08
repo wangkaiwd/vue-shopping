@@ -17,7 +17,7 @@
                 <h3>{{toCategoryInfo[tabIndex].title}}</h3>
             </div> 
             <div class="infobody">
-                <div class="info-col" v-for="item in toCategoryInfo[tabIndex].list" :key="item.id">
+                <div class="info-col" @click="$router.push({path:'/detail'})" v-for="item in toCategoryInfo[tabIndex].list" :key="item.id">
                     <div class="info-img">
                         <img :src="item.imgPath" alt="">
                     </div>

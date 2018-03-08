@@ -14,7 +14,9 @@
                     <div class="m-kill-startstime">Starts at {{item.startTime}}</div>
                 </div>
                 <div class="m-kill-goods">
-                    <img :src="item.imgPath" alt="">
+                    <router-link to='/detail'>
+                      <img :src="item.imgPath" alt="">
+                    </router-link>
                     <div class="block-price">
                         {{item.price|currency}}
                     </div>
@@ -22,7 +24,9 @@
             </div>
         </div>
         <div class="section3-banner">
+          <router-link to='/detail'>
             <img :src="toSection3.banner" alt="">
+          </router-link>
         </div>
     </div>
 </template>

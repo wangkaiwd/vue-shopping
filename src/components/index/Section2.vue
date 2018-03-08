@@ -3,7 +3,9 @@
         <div class="section2-item">
             <div class="section2-item-list" v-for="item in toSection2.section2List" :key="item.id">
                 <div class="section2-item-list-img">
+                  <router-link :to="{path: '/detail'}">
                     <img :src="item.imgPath" alt="">
+                  </router-link>
                 </div>
                 <div class="section2-item-list-body">
                     <h3 class="section2-item-list-title">{{item.title}}</h3>
@@ -17,7 +19,9 @@
             </div>
         </div>
         <div class="section2-banner">
+          <router-link :to="{path: '/detail'}">
             <img :src="toSection2.banner" alt="">
+          </router-link>
         </div>
     </div>
 </template>

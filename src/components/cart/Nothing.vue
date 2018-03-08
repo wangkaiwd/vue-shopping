@@ -5,7 +5,7 @@
         </div>
         <div class="nothing-text">
             <span class="empty">购物车是空的</span>
-            <span class="look">去逛逛</span>
+            <span class="look" @click="$router.push({path:'/'})">去逛逛</span>
         </div>
     </div>
 </template>

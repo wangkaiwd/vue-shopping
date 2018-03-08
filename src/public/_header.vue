@@ -1,10 +1,20 @@
 <template>
     <div class="header">
         <header class="otherheader">
+            <router-link 
+              v-if="$route.matched[0].path=='/category'" 
+              to='/' 
+              exact>
+                <v-icon  
+                  class="otherheader-icon" 
+                  iconText="icon-fanhui">
+                </v-icon>
+            </router-link>
             <v-icon 
               @click.native="$router.go(-1)" 
               class="otherheader-icon" 
-              iconText="icon-fanhui">
+              iconText="icon-fanhui"
+              v-else>
             </v-icon>
             <slot name="title"></slot>
         </header>

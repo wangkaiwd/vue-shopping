@@ -4,6 +4,7 @@ import Category from '../view/Category.vue';
 import Mine from '../view/Mine.vue';
 import Shopcart from '../view/Shopcart.vue';
 import Login from '../view/Login.vue';
+import Detail from '../view/Detail.vue';
 
 const routes = [{
     name: 'index',
@@ -29,6 +30,11 @@ const routes = [{
     name: 'login',
     path: '/login',
     component: Login,
+  },
+  {
+    name: 'detail',
+    path: '/detail',
+    component: Detail,
   },
 ]
 

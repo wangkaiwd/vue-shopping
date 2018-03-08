@@ -6,11 +6,11 @@
         </h2>
         <div class="section1-item clearfix">
           <div class="section1-item-list" v-for="k in toSection1.section1List" :key="k.id">
-            <img :src="k.imgPath" alt="">
+            <img @click="$router.push({path:'/detail'})" :src="k.imgPath" alt="">
           </div>
         </div>
         <div class="section1-banner">
-          <img :src="toSection1.banner" alt="">
+          <img @click="$router.push({path:'/detail'})" :src="toSection1.banner" alt="">
         </div>
     </div>
 </template>
