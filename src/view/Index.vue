@@ -36,7 +36,7 @@ export default {
     };
   },
   created() {
-    this.getIndexData();;
+    this.getIndexData();
   },
   methods: {
     getIndexData() {

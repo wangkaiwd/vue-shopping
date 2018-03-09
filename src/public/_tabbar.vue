@@ -70,7 +70,7 @@ export default {
     width: 0.46rem;
     font-size: 12px;
     line-height: 0.46rem;
-    background-color: #FFAA00;
+    background-color: red;
   }
 }
 </style>

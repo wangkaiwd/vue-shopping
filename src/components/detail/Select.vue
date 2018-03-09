@@ -2,12 +2,24 @@
     <div class="detail-select">
         <div class="shopname">
             {{select.title}}~~
-            <span class="select-type" v-if="select.chose">
+            <span class="select-type"
+                v-if="select.chose">
                 (已选 {{select.chose[colorIndex].col}}-{{select.chose[sizeIndex].size}})
             </span>
         </div>
         <div class="detail-price">
+            <transition v-on:before-enter="beforeEnter"
+                v-on:enter="enter"
+                v-on:after-enter="afterEnter">
+                <mt-badge v-if="isShow"
+                    class="badge"
+                    size="small"
+                    type="error">10</mt-badge>
+            </transition>
             {{select.price*((sizeIndex+1)/2)}} 元
+        </div>
+        <div class="intro">
+            商品简介：{{select.intro}}
         </div>
         <div class="detail-type">
             <div class="type-main">
@@ -40,14 +52,36 @@
 <script>
 export default {
     props: ['select'],
+    updated() {
+        console.log(this.select);
+    },
     data() {
         return {
             colorIndex: 0,
             sizeIndex: 0,
+            isShow: false,
         }
     },
     methods: {
-
+        joinCart() {
+            this.isShow = !this.isShow;
+        },
+        beforeEnter: function (el) {
+            // 初始坐标
+            el.style.transfrom = "translate3d(0,0,0)";
+        },
+        // 此回调函数是可选项的设置
+        // 与 CSS 结合时使用
+        enter: function (el, done) {
+            // 为了让动画不停的执行
+            var width = el.offsetWidth;
+            // 动画结束坐标
+            el.style.transform = "translate3d(100px,200px,0)";
+            done();
+        },
+        afterEnter: function (el) {
+            this.isShow = false;
+        }
     }
 }
 </script>
@@ -62,9 +96,16 @@ export default {
             }
         }
         .detail-price {
+            position: fixed;
+            left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0,0,0,.4);
             padding: 0.2667rem 0.1333rem;
             font-size: 14px;
             color: #FFAA00;
+            opacity: 0.7;
+            border-radius: 10px;
             font-weight: 700;
         }
         .detail-type {
@@ -94,6 +135,30 @@ export default {
                 flex-wrap: wrap;
             }
         }
-        
+        .badge {
+            position: absolute;
+            left: 0.9rem;
+            top: -0.1rem;
+            padding: 0;
+            border-radius: 50%;
+            height: 0.46rem;
+            width: 0.46rem;
+            font-size: 12px;
+            line-height: 0.46rem;
+            background-color: red;
+            opacity: 1;
+            transition: all 1.5s cubic-bezier(.39,-0.97,.74,-0.38);
+            z-index: 1000;
+        }
+        .intro {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: 0.1333rem;
+            height: 1.3333rem;
+            font-size: 14px;
+            border-top: 2px solid rgba(185, 185, 185, 0.14);
+            border-bottom: 2px solid rgba(185, 185, 185, 0.14);
+        }
     }
 </style>

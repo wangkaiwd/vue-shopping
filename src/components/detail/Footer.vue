@@ -1,23 +1,39 @@
 <template>
-    <div class="detail-footer">
-        <div class="detail-home">
-           <v-icon @click.native="$router.push({path: '/'})" iconText="icon-home"></v-icon>
-        </div>
-        <div class="detail-cart">
-            <mt-badge class="badge" size="small" type="error">10</mt-badge>
-            <v-icon @click.native="$router.push({path: '/shopcart'})" iconText="icon-feedback"></v-icon>
-        </div>
-        <div class="detail-join">
-            加入购物车
-        </div>
+  <div class="detail-footer">
+    <div class="detail-home">
+      <v-icon @click.native="$router.push({path: '/'})"
+        iconText="icon-home"></v-icon>
     </div>
+    <div class="detail-cart">
+      <mt-badge class="badge"
+        size="small"
+        type="error">10</mt-badge>
+      <v-icon @click.native="$router.push({path: '/shopcart'})"
+        iconText="icon-feedback"></v-icon>
+    </div>
+    <div class="detail-join"
+      @click="joinCart">
+      加入购物车
+    </div>
+  </div>
 </template>
 
 <script>
 import Icon from "@/public/_icon";
+import { MessageBox } from "mint-ui";
 export default {
   components: {
     "v-icon": Icon
+  },
+  methods: {
+    joinCart() {
+      console.log();
+      // MessageBox({
+      //   title: '商品信息',
+      //   message: '确定执行此操作?',
+      //   showCancelButton: true
+      // });
+    }
   }
 };
 </script>
@@ -64,7 +80,7 @@ export default {
     width: 0.46rem;
     font-size: 12px;
     line-height: 0.46rem;
-    background-color: #FFAA00;
+    background-color: red;
   }
 }
 </style>

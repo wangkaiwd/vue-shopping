@@ -1,6 +1,7 @@
 import Vue from 'vue';
 import App from './App.vue';
 import router from './router/index';
+import store from '@/vuex/store.js';
 
 // 引入flexible布局
 import 'lib-flexible';
@@ -9,7 +10,7 @@ import 'lib-flexible';
 //  不能使用px2rem进行自动转换，
 //  原因：使用mint-ui封装好的组件已经做好的自适应，使用px2rem会将mint-ui封装好的继续进行适配，导致页面大小匹配失败
 // 解决方法:使用vscode的插件px to rem
-import axios from './http/api'
+import axios from './http/api';
 Vue.use( Vue => {
     Vue.prototype.$axios = axios;
 })
@@ -33,5 +34,6 @@ Vue.filter("currency",(val) => {
 const vm = new Vue({
     el:"#app",
     router,
+    store,
     render: createElement => createElement(App),
 })

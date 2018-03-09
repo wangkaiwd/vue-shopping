@@ -1,11 +1,12 @@
 <template>
-    <div class="detail pb">
-        <v-swiper :swiper="swiperData"></v-swiper>
-        <v-select :select="selectData"></v-select>
-        <v-content :content="contentData"></v-content>
-        <v-baseline></v-baseline>
-        <v-footer></v-footer>
-    </div>
+  <div class="detail pb">
+    <v-swiper :swiper="swiperData"></v-swiper>
+    <v-select class="v-select"
+      :select="selectData"></v-select>
+    <v-content :content="contentData"></v-content>
+    <v-baseline></v-baseline>
+    <v-footer class="v-footer"></v-footer>
+  </div>
 </template>
 
 <script>
@@ -19,9 +20,9 @@ import { detail } from "@/http/mock.js";
 export default {
   data() {
     return {
-        swiperData: {},
-        contentData: {},
-        selectData: [],
+      swiperData: {},
+      contentData: {},
+      selectData: [],
     };
   },
   created() {
@@ -30,9 +31,9 @@ export default {
   methods: {
     getDetailData() {
       this.$axios.get("/detail").then(({ data }) => {
-          this.swiperData = data.swiper;
-          this.contentData = data.content;
-          this.selectData = data.view;
+        this.swiperData = data.swiper;
+        this.contentData = data.content;
+        this.selectData = data.view;
       });
     }
   },
@@ -46,6 +47,15 @@ export default {
 };
 </script>
 
-<style>
+<style lang="less" scoped>
+.detail {
+  .v-select {
+    position: relative;
+    z-index: 10;
+  }
+  .v-footer {
+    z-index: 5;
+  }
+}
 
 </style>
