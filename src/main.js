@@ -25,6 +25,13 @@ Vue.config.productionTip = false
 
 Vue.use(MintUI)
 
+// 图片懒加载
+import { Lazyload } from 'mint-ui';
+
+Vue.use(Lazyload);
+
+// 图片懒加载
+
 // 定义一个全局的过滤器来处理人民币
 // 第一个参数默认为要处理的内容
 Vue.filter("currency",(val) => {

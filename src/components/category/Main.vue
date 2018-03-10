@@ -1,5 +1,6 @@
 <template>
-    <div class="main" v-if="main[tabIndex]">
+    <div class="main"
+        v-if="main[tabIndex]">
         <div class="info-title">
             <h3>{{main[tabIndex].title}}</h3>
         </div>
@@ -9,7 +10,8 @@
                 v-for="item in main[tabIndex].list"
                 :key="item.id">
                 <div class="info-img">
-                    <img :src="item.imgPath"
+                    <img v-lazy="item.imgPath"
+                        src=""
                         alt="">
                 </div>
                 <div class="info-detail">

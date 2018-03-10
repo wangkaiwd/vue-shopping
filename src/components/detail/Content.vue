@@ -1,7 +1,7 @@
 <template>
     <div class="detail-content">
         <div class="content-img" v-for="item in content" :key="item.id">
-            <img :src="item.imgPath" alt="">
+            <img src="" v-lazy="item.imgPath" alt="">
         </div>
     </div>
 </template>

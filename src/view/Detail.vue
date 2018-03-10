@@ -34,6 +34,7 @@ export default {
         this.swiperData = data.swiper;
         this.contentData = data.content;
         this.selectData = data.view;
+        console.log(data);
       });
     }
   },

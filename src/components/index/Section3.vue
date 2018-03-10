@@ -15,7 +15,7 @@
                 </div>
                 <div class="m-kill-goods">
                     <router-link to='/detail'>
-                      <img :src="item.imgPath" alt="">
+                      <img src="" v-lazy="item.imgPath" alt="">
                     </router-link>
                     <div class="block-price">
                         {{item.price|currency}}
@@ -25,7 +25,7 @@
         </div>
         <div class="section3-banner">
           <router-link to='/detail'>
-            <img :src="toSection3.banner" alt="">
+            <img src="" v-lazy="toSection3.banner" alt="">
           </router-link>
         </div>
     </div>

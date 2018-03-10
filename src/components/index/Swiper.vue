@@ -1,8 +1,8 @@
 <template>
     <div class="swiper">
-        <mt-swipe :auto="4000">
+        <mt-swipe :auto="4000" @click.native="$router.push({path:'/detail'})">
             <mt-swipe-item v-for="item in toSwiperData.swiperList" :key="item.id" v-if="toSwiperData">
-              <img @click="$router.push({path:'/detail'})" :src="item.imgPath" alt="">
+              <img src="" v-lazy="item.imgPath" alt="">
             </mt-swipe-item>
         </mt-swipe>
     </div>

@@ -8,7 +8,7 @@
             <div class="section4-item-list" v-for="item in toSection4.section4List" :key="item.id">
                 <div class="section4-item-list-img">
                   <router-link to="/detail">
-                    <img :src="item.imgPath" alt="">
+                    <img src="" v-lazy="item.imgPath" alt="">
                   </router-link>
                     <p class="section4-item-list-goodsinfo">{{item.goodsInfo}}</p>
                 </div>
@@ -18,7 +18,7 @@
         </div>
         <div class="section4-banner">
           <router-link to='/detail'>
-            <img :src="toSection4.banner" alt="">
+            <img src="" v-lazy="toSection4.banner" alt="">
           </router-link>
         </div>
     </div>

@@ -52,9 +52,6 @@
 <script>
 export default {
     props: ['select'],
-    updated() {
-        console.log(this.select);
-    },
     data() {
         return {
             colorIndex: 0,
@@ -62,9 +59,12 @@ export default {
             isShow: false,
         }
     },
+    updated() {
+        console.log(this.select);
+    },
     methods: {
         joinCart() {
-            this.isShow = !this.isShow;
+            this.isShow = !this.isShow;  
         },
         beforeEnter: function (el) {
             // 初始坐标

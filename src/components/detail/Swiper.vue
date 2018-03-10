@@ -6,7 +6,7 @@
         <mt-swipe :auto="4000">
             <mt-swipe-item v-for="k in swiper.swiperList"
                 :key="k.id">
-                <img :src="k.imgPath"
+                <img src="" v-lazy="k.imgPath"
                     alt="">
             </mt-swipe-item>
         </mt-swipe>

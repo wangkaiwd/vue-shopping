@@ -6,11 +6,11 @@
         </h2>
         <div class="section1-item clearfix">
           <div class="section1-item-list" v-for="k in toSection1.section1List" :key="k.id">
-            <img @click="$router.push({path:'/detail'})" :src="k.imgPath" alt="">
+            <img src="" @click="$router.push({path:'/detail'})" v-lazy="k.imgPath" alt="">
           </div>
         </div>
         <div class="section1-banner">
-          <img @click="$router.push({path:'/detail'})" :src="toSection1.banner" alt="">
+          <img src="" @click="$router.push({path:'/detail'})" v-lazy="toSection1.banner" alt="">
         </div>
     </div>
 </template>

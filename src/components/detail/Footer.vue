@@ -27,12 +27,11 @@ export default {
   },
   methods: {
     joinCart() {
-      console.log();
-      // MessageBox({
-      //   title: '商品信息',
-      //   message: '确定执行此操作?',
-      //   showCancelButton: true
-      // });
+      MessageBox({
+        title: '商品信息',
+        message: '确定执行此操作?',
+        showCancelButton: true
+      });
     }
   }
 };
