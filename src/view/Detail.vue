@@ -1,8 +1,7 @@
 <template>
   <div class="detail pb">
     <v-swiper :swiper="swiperData"></v-swiper>
-    <v-select class="v-select"
-      :select="selectData"></v-select>
+    <v-select class="v-select"></v-select>
     <v-content :content="contentData"></v-content>
     <v-baseline></v-baseline>
     <v-footer class="v-footer"></v-footer>
@@ -26,6 +25,7 @@ export default {
     };
   },
   created() {
+    this.$store.dispatch("getProductInfo");
     this.getDetailData();
   },
   methods: {
@@ -34,7 +34,6 @@ export default {
         this.swiperData = data.swiper;
         this.contentData = data.content;
         this.selectData = data.view;
-        console.log(data);
       });
     }
   },
@@ -44,7 +43,7 @@ export default {
     "v-baseline": Baseline,
     "v-footer": Footer,
     "v-select": Select,
-  }
+  },
 };
 </script>
 

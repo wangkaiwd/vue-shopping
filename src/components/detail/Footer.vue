@@ -7,7 +7,7 @@
     <div class="detail-cart">
       <mt-badge class="badge"
         size="small"
-        type="error">10</mt-badge>
+        type="error">{{count}}</mt-badge>
       <v-icon @click.native="$router.push({path: '/shopcart'})"
         iconText="icon-feedback"></v-icon>
     </div>
@@ -21,23 +21,37 @@
 <script>
 import Icon from "@/public/_icon";
 import { MessageBox } from "mint-ui";
+import { mapState } from 'vuex';
 export default {
   components: {
     "v-icon": Icon
   },
+  computed: mapState({
+    views: state => state.detail.productData.view,
+    colSelected: state => state.detail.colSelected,
+    sizeSelected: state => state.detail.sizeSelected,
+    count() {
+      return this.$store.state.detail.count;
+    }
+  }),
   methods: {
     joinCart() {
-      MessageBox({
-        title: '商品信息',
-        message: '确定执行此操作?',
-        showCancelButton: true
+      const title = '提示';
+      const message = `商品名称：${this.views.title}<br />
+        价格：${this.views.price}<br />
+        规格：${this.views.chose[this.sizeSelected].size}<br />
+        颜色：${this.views.chose[this.colSelected].col}<br />
+        商品ID：${this.views.id}
+      `
+      MessageBox({ title, message, showCancelButton: true }).then(action => {
+        this.$store.dispatch('oprateProduct', true);
       });
     }
-  }
+  },
 };
 </script>
 
-<style lang="less" scoped>
+<style lang="less">
 .detail-footer {
   display: flex;
   justify-content: center;

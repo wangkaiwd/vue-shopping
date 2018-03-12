@@ -1,10 +1,10 @@
 <template>
-    <div class="detail-select">
+    <div class="detail-views" v-if="views">
         <div class="shopname">
-            {{select.title}}~~
-            <span class="select-type"
-                v-if="select.chose">
-                (已选 {{select.chose[colorIndex].col}}-{{select.chose[sizeIndex].size}})
+            {{views.title}}~~
+            <span class="views-type"
+                v-if="views.chose">
+                (已选 {{colText}}-{{sizeText}})
             </span>
         </div>
         <div class="detail-price">
@@ -16,18 +16,18 @@
                     size="small"
                     type="error">10</mt-badge>
             </transition>
-            {{select.price*((sizeIndex+1)/2)}} 元
+            {{views.price*((sizeSelected+1)/2)}} 元
         </div>
         <div class="intro">
-            商品简介：{{select.intro}}
+            商品简介：{{views.intro}}
         </div>
         <div class="detail-type">
             <div class="type-main">
                 <span class="main-text">颜色 : </span>
                 <div class="detail-type-list">
-                    <p :class="['type-btn',{now: index===colorIndex}]"
-                        v-for="(item,index) in select.chose"
-                        @click="colorIndex=index"
+                    <p :class="['type-btn',{now: index===colSelected}]"
+                        v-for="(item,index) in views.chose"
+                        @click="chooseCol(index)"
                         :key="item.id">
                         {{item.col}}
                     </p>
@@ -36,9 +36,9 @@
             <div class="type-main">
                 <span class="main-text">尺寸 : </span>
                 <div class="detail-type-list">
-                    <p :class="['type-btn',{now: index===sizeIndex}]"
-                        @click="sizeIndex=index"
-                        v-for="(item,index) in select.chose"
+                    <p :class="['type-btn',{now: index===sizeSelected}]"
+                        @click="chooseSize(index)"
+                        v-for="(item,index) in views.chose"
                         :key="item.id">
                         {{item.size}}
                     </p>
@@ -50,21 +50,36 @@
 </template>
 
 <script>
+import { mapState } from 'vuex';
 export default {
-    props: ['select'],
     data() {
         return {
-            colorIndex: 0,
-            sizeIndex: 0,
             isShow: false,
         }
     },
-    updated() {
-        console.log(this.select);
-    },
+    computed: mapState({
+        views: state => state.detail.productData.view,
+        colSelected: state => state.detail.colSelected,
+        sizeSelected: state => state.detail.sizeSelected,
+        // 当前选择的颜色
+        colText() {
+            return this.views.chose[this.colSelected].col;
+        },
+        // 当前选择的大小
+        sizeText() {
+            return this.views.chose[this.sizeSelected].size;
+        }
+    }),
     methods: {
+        chooseCol(i) {
+            this.$store.commit('CHANGE_COL', i);
+
+        },
+        chooseSize(i) {
+            this.$store.commit('CHANGE_SIZE', i);
+        },
         joinCart() {
-            this.isShow = !this.isShow;  
+            this.isShow = !this.isShow;
         },
         beforeEnter: function (el) {
             // 初始坐标
@@ -87,11 +102,11 @@ export default {
 </script>
 
 <style lang="less" scoped>
-    .detail-select {
+    .detail-views {
         padding: 0.2133rem;
         .shopname {
             font-size: 16px;
-            .select-type {
+            .views-type {
                 color: #ee7150;
             }
         }
