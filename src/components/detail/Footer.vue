@@ -22,6 +22,7 @@
 import Icon from "@/public/_icon";
 import { MessageBox } from "mint-ui";
 import { mapState } from 'vuex';
+import Utils from '@/utils/storage';
 export default {
   components: {
     "v-icon": Icon
@@ -31,6 +32,7 @@ export default {
     colSelected: state => state.detail.colSelected,
     sizeSelected: state => state.detail.sizeSelected,
     count() {
+      this.$store.commit('CHANGE_COUNT');
       return this.$store.state.detail.count;
     }
   }),
@@ -43,8 +45,14 @@ export default {
         颜色：${this.views.chose[this.colSelected].col}<br />
         商品ID：${this.views.id}
       `
+      const params = {};
+      params.title = this.views.title;
+      params.price = this.views.price;
+      params.col = this.views.chose[this.colSelected].col;
+      params.size = this.views.chose[this.sizeSelected].size;
       MessageBox({ title, message, showCancelButton: true }).then(action => {
         this.$store.dispatch('oprateProduct', true);
+        Utils.setItem('goodsList',params);
       });
     }
   },

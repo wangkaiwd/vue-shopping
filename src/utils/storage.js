@@ -18,8 +18,13 @@ export default {
    * @param {any} val:设置内容的值
    */
   setItem(k, val) {
-    const string = JSON.stringify(val);
-    // const result = getItem(k);
+    if(typeof(val) === 'object') {
+      const arr = this.getItem(k) || [];
+      arr.push(val);
+      const string = JSON.stringify(arr);
+      console.log(string);
+      return localStorage.setItem(k,string);
+    }
     localStorage.setItem(k, val);
   }
 }

@@ -31,7 +31,8 @@ const mutations = {
   },
   // 获取当前购物车数量
   [types.CHANGE_COUNT](state) {
-    state.count = Utils.getItem('count');
+    // 如果没有内容的话,Utils.getItem('count')为null;
+    state.count = Utils.getItem('count') || 0;
   },
   // 购物车中添加商品
   [types.ADD_PRODUCT](state) {
@@ -44,7 +45,7 @@ const mutations = {
 // action提交的mutations，不直接更改状态(通过store.dispatch触发)
 const actions = {
   // 获取商品详情
-
+  
   // action函数接收一个与store实例具有相同属性和方法的context对象，
   // 可以调用context.commit提交一个mutation
   getProductInfo({commit}) {
@@ -58,14 +59,13 @@ const actions = {
   // 购物车中添加或删除商品,bool=true(增加商品),bool=false(删除商品)
   oprateProduct({commit},bool) {
     if(bool){
-      Utils.setItem('count',state.count++);
-      console.log('----vuex-----');
+      state.count++;
+      Utils.setItem('count',state.count);
       console.log(state.count);
     }
     else {
       Utils.setItem('count',state.count--);
     }
-    commit('CHANGE_COUNT');
   }
 
 
