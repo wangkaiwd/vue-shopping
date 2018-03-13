@@ -1,28 +1,37 @@
 <template>
     <div class="shop-footer">
-        <mt-tabbar v-model="selected" fixed>
+        <mt-tabbar v-model="selected"
+            fixed>
             <mt-tab-item id="index">
-                <router-link :to="{path: '/'}" exact>
-                    <v-icon class="footer-icon" iconText="icon-homepage"></v-icon>
+                <router-link :to="{path: '/'}"
+                    exact>
+                    <v-icon class="footer-icon"
+                        iconText="icon-homepage"></v-icon>
                     首页
                 </router-link>
             </mt-tab-item>
             <mt-tab-item id="category">
                 <router-link :to="{path: '/category'}">
-                    <v-icon class="footer-icon" iconText="icon-manage"></v-icon>
+                    <v-icon class="footer-icon"
+                        iconText="icon-manage"></v-icon>
                     分类
                 </router-link>
             </mt-tab-item>
-            <mt-tab-item id="shopcart" class="shop-footer-cart">
+            <mt-tab-item id="shopcart"
+                class="shop-footer-cart">
                 <router-link :to="{path:'/shopcart'}">
-                    <mt-badge class="badge" size="small" type="error">10</mt-badge>
-                    <v-icon class="footer-icon" iconText="icon-gouwuche"></v-icon>
+                    <mt-badge class="badge"
+                        size="small"
+                        type="error">{{count}}</mt-badge>
+                    <v-icon class="footer-icon"
+                        iconText="icon-gouwuche"></v-icon>
                     购物车
                 </router-link>
             </mt-tab-item>
             <mt-tab-item id="mine">
                 <router-link :to="{path: '/mine'}">
-                    <v-icon class="footer-icon" iconText="icon-wode"></v-icon>
+                    <v-icon class="footer-icon"
+                        iconText="icon-wode"></v-icon>
                     我的
                 </router-link>
             </mt-tab-item>
@@ -32,17 +41,24 @@
 
 <script>
 import Icon from "@/public/_icon.vue";
+import Utils from '@/utils/storage.js';
 export default {
-  data() {
-    return {
-      selected: ""
-    };
-  },
-  components: {
-    "v-icon": Icon
-  },
-  methods: {
-  }
+    data() {
+        return {
+            selected: ""
+        };
+    },
+    components: {
+        "v-icon": Icon
+    },
+    computed: {
+        count() {
+            this.$store.commit('CHANGE_COUNT');
+            return this.$store.state.detail.count;
+        }
+    },
+    methods: {
+    }
 };
 </script>
 

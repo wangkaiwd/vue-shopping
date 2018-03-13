@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-category pt">
+    <div class="shop-category">
       <v-header>
         <h2 slot="title">商品分类</h2>
       </v-header>

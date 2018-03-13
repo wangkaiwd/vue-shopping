@@ -57,6 +57,7 @@ export default {
     .total-price {
         flex-direction: column;
         flex-wrap: wrap;
+        background-color: #fff;
     }
     .total-top {
         color: #999;

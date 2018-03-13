@@ -32,9 +32,10 @@ export default {
 <style lang="less">
 .header {
   .otherheader {
-    position: fixed;
-    left: 0;
-    top: 0;
+    // position: fixed;
+    // left: 0;
+    // top: 0;
+    position: relative;
     width: 100%;
     height: 1.12rem;
     text-align: center;

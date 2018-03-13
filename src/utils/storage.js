@@ -22,7 +22,6 @@ export default {
       const arr = this.getItem(k) || [];
       arr.push(val);
       const string = JSON.stringify(arr);
-      console.log(string);
       return localStorage.setItem(k,string);
     }
     localStorage.setItem(k, val);

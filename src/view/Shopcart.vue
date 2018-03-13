@@ -1,10 +1,10 @@
 <template>
-    <div class="shopcart pt">
+    <div class="shopcart pb">
         <v-header>
             <h2 slot="title">购物车</h2>
         </v-header>
         <v-gologin></v-gologin>
-        <v-nothing v-if="count"></v-nothing>
+        <v-nothing v-if="count===0"></v-nothing>
         <v-something else></v-something>
         <v-footer></v-footer>
     </div>
@@ -22,6 +22,9 @@ export default {
             this.$store.state.detail.count;
         },
     },
+    // updated() {
+    //     console.log(this.count);
+    // },
     components: {
         "v-gologin": GoLogin,
         "v-nothing": Nothing,

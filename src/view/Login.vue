@@ -1,5 +1,5 @@
 <template>
-    <div class="shop-login pt">
+    <div class="shop-login">
         <v-header>
             <h2 slot="title">登录页</h2>
         </v-header>
