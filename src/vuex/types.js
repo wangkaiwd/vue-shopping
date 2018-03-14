@@ -15,3 +15,8 @@ export const CHANGE_COUNT = 'CHANGE_COUNT';
 
 // footer中添加购物车时商品的数据
 export const ADD_PRODUCT = 'ADD_PRODUCT';
+
+// 重新获取购物车商品列表
+export const RESET_CARLIST = 'RESET_CARLIST';
+
+

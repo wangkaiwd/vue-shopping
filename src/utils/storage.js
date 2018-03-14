@@ -16,14 +16,16 @@ export default {
    * @author (authorName)
    * @param {any} k: 设置内容的键
    * @param {any} val:设置内容的值
+   * @param {boolean} bool:判断是否进行push
    */
-  setItem(k, val) {
-    if(typeof(val) === 'object') {
+  setItem(k, val,bool) {
+    if(typeof(val) === 'object' && bool) {
       const arr = this.getItem(k) || [];
       arr.push(val);
       const string = JSON.stringify(arr);
       return localStorage.setItem(k,string);
     }
-    localStorage.setItem(k, val);
+    const string = JSON.stringify(val);
+    localStorage.setItem(k, string);
   }
 }

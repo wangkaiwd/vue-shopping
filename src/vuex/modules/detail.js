@@ -15,6 +15,7 @@ const state = {
   sizeSelected: 0,
   // 购车中的商品数量
   count: 0,
+  carList: [],
 };
 const mutations = {
   // 商品信息赋值
@@ -34,10 +35,10 @@ const mutations = {
     // 如果没有内容的话,Utils.getItem('count')为null;
     state.count = Utils.getItem('count') || 0;
   },
-  // 购物车中添加商品
-  [types.ADD_PRODUCT](state) {
-    state.count ++;
-    Utils.setItem('count',state.count);
+  // 重新获取购物车商品列表
+  [types.RESET_CARLIST](state) {
+    state.carList = Utils.getItem('goodsList');
+    Utils.setItem('goodsList',state.carList,false);
   }
 }
 
@@ -58,14 +59,24 @@ const actions = {
 
   // 购物车中添加或删除商品,bool=true(增加商品),bool=false(删除商品)
   oprateProduct({commit},bool) {
+    // 确保获取准确的商品数量
+    commit('CHANGE_COUNT');
     if(bool){
       state.count++;
-      Utils.setItem('count',state.count);
-      console.log(state.count);
+      Utils.setItem('count',state.count,false);
     }
     else {
-      Utils.setItem('count',state.count--);
+      if(state.count<=0) {
+        return alert('购物车为空');
+      }
+      state.count--;
+      Utils.setItem('count',state.count,false);
     }
+  },
+  cutCarList({commit},i) {
+    commit('RESET_CARLIST');
+    state.carList.splice(i,1);
+    Utils.setItem('goodsList',state.carList,false);
   }
 
 

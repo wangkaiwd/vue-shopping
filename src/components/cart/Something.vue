@@ -15,7 +15,7 @@
                 <div class="chose">{{k.col}} -- {{k.size}}</div>
                 <div class="price">售价：{{k.price}}元</div>
                 <v-icon 
-                    class="delete"
+                    :class="[{active: i===deleteIndex},'del']"
                     iconText="icon-lajixiang"
                     @click.native="cut(i)">
                 </v-icon>
@@ -32,6 +32,7 @@ export default {
     data() {
         return {
             deleteIndex: '',
+            isClick: true,
         }
     },
     components: {
@@ -39,13 +40,17 @@ export default {
     },
     computed: {
         carList() {
-            return Utils.getItem('goodsList');
+            this.$store.commit('RESET_CARLIST');
+            return this.$store.state.detail.carList;
         }
     },
     methods: {
         cut(i) {
-            console.log(i);
             this.deleteIndex = i;
+            setTimeout(() => {
+                this.$store.dispatch('oprateProduct',false);
+                this.$store.dispatch('cutCarList',i);
+            },300);
         }
     }
 }
@@ -97,15 +102,23 @@ export default {
             font-size: 12px;
             color: #a8a8a8;
         }
-        .delete {
+        .del {
             position: absolute;
             bottom: 0;
             right: 0;
             padding: 0.2667rem;
             color: #999;
             font-size: 25px;
-            & > .active {
-                transform: scale(1.3);
+            &.active {
+                animation: fd 0.3s;
+            }
+            @keyframes fd {
+                0% {
+                    transform: scale(1);
+                };
+                100% {
+                    transform: scale(1.3);
+                }
             }
         }
     }

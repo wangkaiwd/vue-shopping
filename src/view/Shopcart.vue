@@ -19,7 +19,8 @@ import Header from "@/public/_header.vue";
 export default {
     computed: {
         count() {
-            this.$store.state.detail.count;
+            this.$store.commit('CHANGE_COUNT');
+            return this.$store.state.detail.count;
         },
     },
     // updated() {

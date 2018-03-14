@@ -46,7 +46,6 @@ export default {
         商品ID：${this.views.id}
       `
       const params = {};
-      // console.log(this.$store.state.detail.productData);
       params.title = this.views.title;
       params.price = this.views.price;
       params.col = this.views.chose[this.colSelected].col;
@@ -54,7 +53,7 @@ export default {
       params.imgPath = this.$store.state.detail.productData.swiper.swiperList[0].imgPath;
       MessageBox({ title, message, showCancelButton: true }).then(action => {
         this.$store.dispatch('oprateProduct', true);
-        Utils.setItem('goodsList',params);
+        Utils.setItem('goodsList',params,true);
       });
     }
   },
