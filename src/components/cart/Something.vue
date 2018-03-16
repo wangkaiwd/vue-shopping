@@ -7,7 +7,8 @@
                 <mt-switch v-model="k.value"></mt-switch>
             </div>
             <div class="cart-something-img">
-                <img :src="k.imgPath"
+                <img 
+                    :src="k.imgPath"
                     alt="">
             </div>
             <div class="product-info">
@@ -50,7 +51,7 @@ export default {
             setTimeout(() => {
                 this.$store.dispatch('oprateProduct',false);
                 this.$store.dispatch('cutCarList',i);
-            },300);
+            },200);
         }
     }
 }
