@@ -23,9 +23,6 @@ export default {
             return this.$store.state.detail.count;
         },
     },
-    // updated() {
-    //     console.log(this.count);
-    // },
     components: {
         "v-gologin": GoLogin,
         "v-nothing": Nothing,

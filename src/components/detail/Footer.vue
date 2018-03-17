@@ -8,7 +8,7 @@
       <mt-badge class="badge"
         size="small"
         type="error">{{count}}</mt-badge>
-      <v-icon @click.native="$router.push({path: '/shopcart'})"
+      <v-icon @click.native="goShopcart()"
         iconText="icon-feedback"></v-icon>
     </div>
     <div class="detail-join"
@@ -55,6 +55,10 @@ export default {
         this.$store.dispatch('oprateProduct', true);
         Utils.setItem('goodsList',params,true);
       });
+    },
+    goShopcart() {
+      this.$router.push({path:'/shopcart'});
+      this.$store.commit('RESET_CARLIST');
     }
   },
 };

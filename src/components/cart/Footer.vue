@@ -2,13 +2,13 @@
     <div class="shopcart-footer">
         <div class="total-price">
             <div class="total-top">
-                共0件 金额 : 
+                共{{selectedNum}}件 金额 : 
             </div>
             <div class="total-bottom">
-                <span class="price-number"> 0</span> 元
+                <span class="price-number"> {{totalPrice}} </span> 元
             </div>
         </div>
-        <div class="continue">
+        <div class="continue" @click="$router.push({path:'/category'})">
             继续购物
         </div>
         <div class="accounts">
@@ -19,7 +19,14 @@
 
 <script>
 export default {
-
+    computed: {
+        selectedNum() {
+            return this.$store.state.detail.selectedNum;
+        },
+        totalPrice() {
+            return this.$store.state.detail.totalPrice;
+        }
+    }
 }
 </script>
 

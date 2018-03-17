@@ -15,7 +15,12 @@ const state = {
   sizeSelected: 0,
   // 购车中的商品数量
   count: 0,
+  // 购物车中的商品列表
   carList: [],
+  // 商品总金额
+  totalPrice: 0,
+  // 选中商品的数量
+  selectedNum: 0,
 };
 const mutations = {
   // 商品信息赋值
@@ -38,6 +43,18 @@ const mutations = {
   // 重新获取购物车商品列表
   [types.RESET_CARLIST](state) {
     state.carList = Utils.getItem('goodsList');
+    Utils.setItem('goodsList',state.carList,false);
+  },
+  // 获取商品总价格
+  [types.CHANGE_TOTAL_PRICE](state) {
+    state.totalPrice = 0;
+    state.selectedNum = 0;
+    state.carList.map(item => {
+      if(item.value) {
+        state.selectedNum += 1;
+        state.totalPrice += item.price;
+      }
+    })
     Utils.setItem('goodsList',state.carList,false);
   }
 }
@@ -77,6 +94,8 @@ const actions = {
     commit('RESET_CARLIST');
     state.carList.splice(i,1);
     Utils.setItem('goodsList',state.carList,false);
+    // 删除之后同步localStorage中的数据
+    commit('CHANGE_TOTAL_PRICE');
   }
 
 

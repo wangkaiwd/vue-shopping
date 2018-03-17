@@ -52,7 +52,7 @@ export default {
       h3 {
         padding: 0.4rem 0 0.2rem 0.5rem;
         font-weight: 400;
-        font-size: 20px;
+        font-size: 22px;
         color: black;
       }
     }

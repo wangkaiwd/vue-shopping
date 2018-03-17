@@ -4,7 +4,7 @@
             v-for="(k,i) in carList"
             :key="i">
             <div class="chose-selected">
-                <mt-switch v-model="k.value"></mt-switch>
+                <mt-switch @change="select(i)" v-model="k.value"></mt-switch>
             </div>
             <div class="cart-something-img">
                 <img 
@@ -41,17 +41,26 @@ export default {
     },
     computed: {
         carList() {
-            this.$store.commit('RESET_CARLIST');
+            // 进入页面的时候内容会重置：
+            // 1. 在当前页面刷新
+            // 2. 从其它页面进入当前页面（比如添加完商品后）
+            if(this.$store.state.detail.carList.length===0) {
+                this.$store.commit('RESET_CARLIST');
+            }
             return this.$store.state.detail.carList;
         }
     },
     methods: {
         cut(i) {
             this.deleteIndex = i;
-            setTimeout(() => {
+            setTimeout( () => {
                 this.$store.dispatch('oprateProduct',false);
                 this.$store.dispatch('cutCarList',i);
-            },200);
+                this.deleteIndex='';
+            },200)
+        },
+        select() {
+            this.$store.commit('CHANGE_TOTAL_PRICE');
         }
     }
 }
@@ -111,7 +120,7 @@ export default {
             color: #999;
             font-size: 25px;
             &.active {
-                animation: fd 0.3s;
+                animation: fd 0.2s;
             }
             @keyframes fd {
                 0% {

@@ -19,4 +19,8 @@ export const ADD_PRODUCT = 'ADD_PRODUCT';
 // 重新获取购物车商品列表
 export const RESET_CARLIST = 'RESET_CARLIST';
 
+// 对选择内容进行价格计算
+export const CHANGE_TOTAL_PRICE = 'CHANGE_TOTAL_PRICE';
+
+
 
