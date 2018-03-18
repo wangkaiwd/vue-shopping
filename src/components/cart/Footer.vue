@@ -11,7 +11,7 @@
         <div class="continue" @click="$router.push({path:'/category'})">
             继续购物
         </div>
-        <div class="accounts">
+        <div class="accounts" @click="$router.push({path:'/pay'})">
             去结算
         </div>
     </div>
