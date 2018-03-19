@@ -1,0 +1,102 @@
+│ .babelrc                                    
+│ .editorconfig
+│ .gitignore
+│ .postcssrc.js
+│ demo.html                                             // 书写中进行一些小demo的测试和学习
+│ index.html                                            // 模板html
+│ package.json                                          // 包管理文件
+│ README.md                                             // markdown项目文档说明
+│
+├─build                                               
+│ build.js
+│ check-versions.js
+│ utils.js
+│ vue-loader.conf.js
+│ webpack.base.conf.js
+│ webpack.dev.conf.js
+│ webpack.prod.conf.js
+│
+├─config
+│ dev.env.js
+│ index.js
+│ prod.env.js
+│
+├─src                                                   // 项目源码目录文件
+│ │ App.vue                                             // 项目根组件
+│ │ main.js                                             // 项目入口文件
+│ │
+│ ├─common                                              // 公共的js，css和图片
+│ │ └─styles                                            // css文件
+│ │ minix.css                                           // 定义css混合器
+│ │ minix.less                                    
+│ │ root.css                                            // 全局的初始化样式
+│ │ root.less
+│ │
+│ ├─components                                          // 定义页面的组件
+│ │ ├─cart                                        
+│ │ │ │ Footer.vue
+│ │ │ │ GoLogin.vue
+│ │ │ │ Nothing.vue
+│ │ │ │ Something.vue
+│ │ │ │
+│ │ │ └─pay
+│ │ ├─category
+│ │ │ Aside.vue
+│ │ │ CategoryInfo.vue
+│ │ │ Main.vue
+│ │ │
+│ │ ├─detail
+│ │ │ Content.vue
+│ │ │ Footer.vue
+│ │ │ Select.vue
+│ │ │ Swiper.vue
+│ │ │
+│ │ └─index
+│ │ Header.vue
+│ │ Section1.vue
+│ │ Section2.vue
+│ │ Section3.vue
+│ │ Section4.vue
+│ │ Service.vue
+│ │ Swiper.vue
+│ │
+│ ├─http                                                // 对项目中需要用到请求的封装
+│ │ api.js                        
+│ │ mock.js                                             // mockJs模拟后台数据文件
+│ │ tool.js                                             // 可以进行项目全局的根路径进行封装
+│ │
+│ ├─public                                              // 公共的页面组件，如果常用的化可以注册成全局组件
+│ │ _baseline.vue                      
+│ │ _header.vue
+│ │ _icon.vue
+│ │ _swiper.vue
+│ │ _tabbar.vue
+│ │
+│ ├─router                                              // 路由配置文件
+│ │ index.js
+│ │ routes.js
+│ │
+│ ├─utils                                               // 工具类文件
+│ │ storage.js
+│ │
+│ ├─view                                                // 项目页面视图文件
+│ │ Category.vue
+│ │ Detail.vue
+│ │ Index.vue
+│ │ Login.vue
+│ │ Mine.vue
+│ │ Pay.vue
+│ │ Shopcart.vue
+│ │
+│ └─vuex                                                // vuex相关文件，进行全局状态管理
+│ │ store.js
+│ │ types.js
+│ │
+│ └─modules
+│ category.js
+│ detail.js
+│
+└─static                                                // 存放一些不怎么变更的页面静态文件
+        .gitkeep
+        carbg.png
+        favicon.ico
