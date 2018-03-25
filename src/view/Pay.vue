@@ -12,8 +12,8 @@
                 收货地址：河南省郑州市中原区秦岭路8号院59号单元28层15号东户第三家
             </p>
         </div>
-        <div class="pay-list">
-            <ul>
+        <div class="pay-list wrapper" ref="wrapper">
+            <ul class="content" v-if="selectedGoods.length !== 0">
                 <li v-for="(k,i) in selectedGoods"
                     :key="i">
                     <div class="pay-img">
@@ -26,6 +26,10 @@
                     </div>
                 </li>
             </ul>
+            <!-- <div class="empty"
+                v-else>
+                没有选择商品
+            </div> -->
         </div>
         <div class="white-space"></div>
         <div class="pay-total">
@@ -35,12 +39,14 @@
         </div>
         <div class="immediate-pay">
             <mt-button size="large"
-                type="danger">立即支付</mt-button>
+                type="danger"
+                @click="payOnTime">立即支付</mt-button>
         </div>
     </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll';
 import Header from '@/public/_header.vue';
 export default {
     components: {
@@ -56,6 +62,20 @@ export default {
             this.selectedGoods.map(item => price += item.price);
             return price;
         }
+    },
+    methods: {
+        // 立即支付
+        payOnTime() {
+            this.$store.commit('CLEAR_PAYGOODS');
+            this.$store.commit('CHANGE_TOTAL_PRICE');
+            this.$store.commit('CHANGE_COUNT');
+            this.selectedTotalPrice = 0;
+        }
+    },
+    mounted() {
+        this.$nextTick(() => {
+            this.scroll = new BScroll(this.$refs.wrapper, { tap: true });
+        })
     }
 }
 </script>

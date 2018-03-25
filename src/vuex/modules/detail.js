@@ -28,9 +28,9 @@ const state = {
   // 选中商品的数量
   selectedNum: 0,
   // 勾选的商品信息
-  selectedGoods: {},
+  selectedGoods: [],
   // 未勾选的商品信息
-  unSelectedGoods:{},
+  unSelectedGoods:[],
 };
 const mutations = {
   // 商品信息赋值
@@ -68,6 +68,12 @@ const mutations = {
     Utils.setItem('goodsList',state.carList,false);
     Utils.setItem('totalPrice',state.totalPrice,false);
     Utils.setItem('selectedNum', state.totalPrice, false);
+  },
+  [types.CLEAR_PAYGOODS](state){
+    const carList = state.carList.filter( item => !item.value);
+    Utils.setItem('count',carList.length,false);
+    Utils.setItem('goodsList',carList,false);
+    state.carList = Utils.getItem('goodsList');
   },
 
   // 获取勾选商品列表

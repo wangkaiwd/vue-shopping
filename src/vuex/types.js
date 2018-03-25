@@ -25,5 +25,9 @@ export const CHANGE_TOTAL_PRICE = 'CHANGE_TOTAL_PRICE';
 // 更改勾选商品列表
 export const CHANGE_SELECTED_GOODSLIST = 'CHANGE_SELECTED_GOODSLIST';
 
+// 清除付款商品
+export const CLEAR_PAYGOODS = 'CLEAR_PAYGOODS';
+
+
 
 
