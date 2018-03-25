@@ -1,6 +1,6 @@
 <template>
-    <div class="shop-category">
-      <v-header>
+    <div class="shop-category pt">
+      <v-header class="category-title">
         <h2 slot="title">商品分类</h2>
       </v-header>
       <!-- <v-category-info :toCategoryInfo="asideData"></v-category-info> -->
@@ -19,6 +19,7 @@ import Main from '@/components/category/Main.vue';
 
 // 引入mockjs生成的请求
 import { category } from "@/http/mock.js";
+
 
 export default {
   data() {
@@ -53,6 +54,12 @@ export default {
     width: 100%;
     height: 100%;
     display: flex;
+  }
+  .category-title {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100%;
   }
 }
 </style>

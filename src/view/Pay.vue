@@ -14,21 +14,24 @@
         </div>
         <div class="pay-list">
             <ul>
-                <li>
+                <li v-for="(k,i) in selectedGoods"
+                    :key="i">
                     <div class="pay-img">
-                        <img src="/static/carbg.png"
+                        <img :src="k.imgPath"
                             alt="">
                     </div>
                     <div class="pay-info">
-                        <span class="pay-list-title">1234</span>
-                        <span class="pay-price">279 元</span>
+                        <span class="pay-list-title">{{k.title}}</span>
+                        <span class="pay-price">{{k.price}} 元</span>
                     </div>
                 </li>
             </ul>
         </div>
         <div class="white-space"></div>
         <div class="pay-total">
-            <p>总需要支付：<span class="pay-num">{{837|currency}}</span></p>
+            <p>总需要支付：
+                <span class="pay-num">{{selectedTotalPrice|currency}}</span>
+            </p>
         </div>
         <div class="immediate-pay">
             <mt-button size="large"
@@ -40,11 +43,19 @@
 <script>
 import Header from '@/public/_header.vue';
 export default {
-    creatd() {
-        console.log(this.$store.detail.count);
-    },
     components: {
         'v-header': Header,
+    },
+    computed: {
+        selectedGoods() {
+            this.$store.commit('CHANGE_SELECTED_GOODSLIST');
+            return this.$store.state.detail.selectedGoods;
+        },
+        selectedTotalPrice() {
+            let price = 0;
+            this.selectedGoods.map(item => price += item.price);
+            return price;
+        }
     }
 }
 </script>
@@ -70,7 +81,7 @@ export default {
         height: 6.6667rem;
         overflow: scroll;
         li {
-            padding: 0.36rem 0.5333rem;
+            padding: 0.18rem 0.4rem;
             display: flex;
             border-bottom: 1px solid #e8e4e4;
             .pay-img {

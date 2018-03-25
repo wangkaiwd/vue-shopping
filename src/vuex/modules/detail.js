@@ -3,6 +3,12 @@ import Utils from '@/utils/storage';
 
 import Vue from 'vue';
 
+// 购物车结算逻辑：
+//    用户勾选商品时,根据bool值将勾选商品选出
+//    如果用户进行支付的话，将付款的商品从列表删除
+
+
+
 // 要发起异步请求，axios是挂载在vue实例上的
 const vm = new Vue();
 
@@ -21,6 +27,10 @@ const state = {
   totalPrice: 0,
   // 选中商品的数量
   selectedNum: 0,
+  // 勾选的商品信息
+  selectedGoods: {},
+  // 未勾选的商品信息
+  unSelectedGoods:{},
 };
 const mutations = {
   // 商品信息赋值
@@ -56,6 +66,13 @@ const mutations = {
       }
     })
     Utils.setItem('goodsList',state.carList,false);
+    Utils.setItem('totalPrice',state.totalPrice,false);
+    Utils.setItem('selectedNum', state.totalPrice, false);
+  },
+
+  // 获取勾选商品列表
+  [types.CHANGE_SELECTED_GOODSLIST](state) {
+    state.selectedGoods = Utils.getItem('goodsList').filter(item => item.value);
   }
 }
 

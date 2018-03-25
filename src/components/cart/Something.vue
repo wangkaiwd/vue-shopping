@@ -61,6 +61,7 @@ export default {
         },
         select() {
             this.$store.commit('CHANGE_TOTAL_PRICE');
+            this.$store.commit('CHANGE_SELECTED_GOODSLIST');
         }
     }
 }

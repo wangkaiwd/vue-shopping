@@ -22,5 +22,8 @@ export const RESET_CARLIST = 'RESET_CARLIST';
 // 对选择内容进行价格计算
 export const CHANGE_TOTAL_PRICE = 'CHANGE_TOTAL_PRICE';
 
+// 更改勾选商品列表
+export const CHANGE_SELECTED_GOODSLIST = 'CHANGE_SELECTED_GOODSLIST';
+
 
 

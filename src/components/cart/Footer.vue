@@ -18,12 +18,20 @@
 </template>
 
 <script>
+import Utils from '@/utils/storage';
 export default {
     computed: {
+        // 页面进行刷新的时候这俩个值会重置
         selectedNum() {
+            if(this.$store.state.detail.selectedNum === 0) {
+                return Utils.getItem('selectedNum') || 0;
+            }
             return this.$store.state.detail.selectedNum;
         },
         totalPrice() {
+            if(this.$store.state.detail.totalPrice === 0) {
+                return Utils.getItem('totalPrice') || 0;
+            }
             return this.$store.state.detail.totalPrice;
         }
     }
