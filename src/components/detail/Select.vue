@@ -138,7 +138,7 @@ export default {
                 font-size: 14px;
                 border: 1px solid #ccc;
                 border-radius: 0.1333rem;
-                margin-right: 0.2667rem;
+                margin-left: 0.2667rem;
                 &.now {
                     border: 1px solid #FFAA00;
                     color: #FFAA00;
@@ -148,6 +148,7 @@ export default {
                 flex: 1;
                 display: flex;
                 flex-wrap: wrap;
+                margin-left: -0.2667rem;
             }
         }
         .badge {

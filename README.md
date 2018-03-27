@@ -22,7 +22,7 @@
   工具代码  
 * controllers,views,middlewares,models  
   MVC对应的models,views,controllers, 中间件middlewares  
-  ![mvc编程模式](./mdimages/mvc.png)  
+  ![mvc编程模式](./static/mdimages/mvc.png)  
 * router  
   路由  
 * server  
@@ -55,14 +55,14 @@
 ### es6小技巧简单总结  
 1. 函数传递默认参数值   
    当函数的参数为传入或者传入值为`undefined`时，会应用参数的默认值  
-   ![函数传递默认参数值1](./mdimages/函数传入默认参数.png)  
+   ![函数传递默认参数值1](./static/mdimages/函数传入默认参数.png)  
    默认值可以是表达式，所以我们可以将默认值**设置为一个执行函数**，如果该参数没有传值，就会执行我们的默认函数  
-   ![函数传递默认参数值2](./mdimages/函数默认值也是函数.png)  
+   ![函数传递默认参数值2](./static/mdimages/函数默认值也是函数.png)  
 2. 解构赋值时分配变量名  
-   ![解构赋值时分配变量名](./mdimages/解构赋值分配变量名.png)  
+   ![解构赋值时分配变量名](./static/mdimages/解构赋值分配变量名.png)  
 3. 扩展运算符简写  
-   ![解构赋值时分配变量名](./mdimages/...简写.png)  
+   ![解构赋值时分配变量名](./static/mdimages/...简写.png)  
    使用扩展运算符进行解构  
-   ![解构赋值时分配变量名](./mdimages/...解构.png)  
+   ![解构赋值时分配变量名](./static/mdimages/...解构.png)  
    使用扩展运算符移除对象的多余属性  
-   ![解构赋值时分配变量名](./mdimages/...移除对象多余属性.png)
+   ![解构赋值时分配变量名](./static/mdimages/...移除对象多余属性.png)
