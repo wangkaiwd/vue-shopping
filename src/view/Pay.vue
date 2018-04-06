@@ -99,7 +99,7 @@ export default {
     }
     .pay-list {
         height: 6.6667rem;
-        overflow: scroll;
+        overflow: hidden;
         li {
             padding: 0.18rem 0.4rem;
             display: flex;

@@ -22,7 +22,9 @@ import Section3 from "@/components/index/Section3.vue";
 import Section4 from "@/components/index/Section4.vue";
 import Baseline from "@/public/_baseline.vue";
 import Tabbar from "@/public/_tabbar.vue";
-// mock数据
+
+// 引入请求方法和mock数据
+import { fetchIndex } from "@/http/url";
 import {index} from "../http/mock";
 
 export default {
@@ -40,13 +42,13 @@ export default {
   },
   methods: {
     getIndexData() {
-      this.$axios.get("/index").then(({ data }) => {
+      fetchIndex({},({ data }) => {
         this.swiperData = data.swiper;
         this.section1Data = data.section1;
         this.section2Data = data.section2;
         this.section3Data = data.section3;
         this.section4Data = data.section4;
-      });
+      })
     },
   },
   // 组件用-隔开必须加引号

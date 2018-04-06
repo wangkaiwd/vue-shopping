@@ -1,16 +1,10 @@
 import * as types from '../types';
 import Utils from '@/utils/storage';
-
-import Vue from 'vue';
-
+import {fetchDetail} from '@/http/url';
 // 购物车结算逻辑：
 //    用户勾选商品时,根据bool值将勾选商品选出
 //    如果用户进行支付的话，将付款的商品从列表删除
 
-
-
-// 要发起异步请求，axios是挂载在vue实例上的
-const vm = new Vue();
 
 const state = {
   // 最初的商品信息的数据
@@ -67,7 +61,7 @@ const mutations = {
     })
     Utils.setItem('goodsList',state.carList,false);
     Utils.setItem('totalPrice',state.totalPrice,false);
-    Utils.setItem('selectedNum', state.totalPrice, false);
+    Utils.setItem('selectedNum', state.selectedNum, false);
   },
   [types.CLEAR_PAYGOODS](state){
     const carList = state.carList.filter( item => !item.value);
@@ -90,8 +84,7 @@ const actions = {
   // action函数接收一个与store实例具有相同属性和方法的context对象，
   // 可以调用context.commit提交一个mutation
   getProductInfo({commit}) {
-    vm.$axios.get('/detail').then(
-      ({data}) => {
+    fetchDetail({},({data}) => {
         commit('SET_DATA', data)
       }
     );

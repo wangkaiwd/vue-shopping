@@ -3,7 +3,6 @@
       <v-header class="category-title">
         <h2 slot="title">商品分类</h2>
       </v-header>
-      <!-- <v-category-info :toCategoryInfo="asideData"></v-category-info> -->
       <div class="category-body">
         <v-aside :aside="asideData"></v-aside>
         <v-main :main="asideData"></v-main>
@@ -13,11 +12,12 @@
 
 <script>
 import Header from "@/public/_header.vue";
-// import CategoryInfo from "@/components/category/CategoryInfo.vue";
 import Aside from '@/components/category/Aside.vue';
 import Main from '@/components/category/Main.vue';
 
-// 引入mockjs生成的请求
+
+// 引入请求方法和mocks数据
+import { fetchCategory } from '@/http/url';
 import { category } from "@/http/mock.js";
 
 
@@ -38,10 +38,10 @@ export default {
   },
   methods: {
     getCategoryData() {
-      this.$axios.get("/category").then(({ data }) => {
+      fetchCategory({},({ data }) => {
         //   console.log(data);
         this.asideData = data.aside;
-      });
+      })
     }
   }
 };

@@ -15,6 +15,8 @@ import Content from "@/components/detail/Content.vue";
 import Baseline from "@/public/_baseline.vue";
 import Footer from "@/components/detail/Footer.vue";
 
+// 引入请求方法和mock数据
+import {fetchDetail} from '@/http/url';
 import { detail } from "@/http/mock.js";
 export default {
   data() {
@@ -30,7 +32,7 @@ export default {
   },
   methods: {
     getDetailData() {
-      this.$axios.get("/detail").then(({ data }) => {
+      fetchDetail({},({ data }) => {
         this.swiperData = data.swiper;
         this.contentData = data.content;
         this.selectData = data.view;
