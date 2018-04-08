@@ -12,8 +12,10 @@
                 收货地址：河南省郑州市中原区秦岭路8号院59号单元28层15号东户第三家
             </p>
         </div>
-        <div class="pay-list wrapper" ref="wrapper">
-            <ul class="content" v-if="selectedGoods.length !== 0">
+        <div class="pay-list wrapper"
+            ref="wrapper">
+            <ul class="content"
+                v-if="selectedGoods.length !== 0">
                 <li v-for="(k,i) in selectedGoods"
                     :key="i">
                     <div class="pay-img">
@@ -26,10 +28,10 @@
                     </div>
                 </li>
             </ul>
-            <!-- <div class="empty"
+            <div class="empty"
                 v-else>
-                没有选择商品
-            </div> -->
+                没有选择商品!!
+            </div>
         </div>
         <div class="white-space"></div>
         <div class="pay-total">
@@ -48,6 +50,7 @@
 <script>
 import BScroll from 'better-scroll';
 import Header from '@/public/_header.vue';
+import { MessageBox, Toast } from 'mint-ui';
 export default {
     components: {
         'v-header': Header,
@@ -66,10 +69,28 @@ export default {
     methods: {
         // 立即支付
         payOnTime() {
-            this.$store.commit('CLEAR_PAYGOODS');
-            this.$store.commit('CHANGE_TOTAL_PRICE');
-            this.$store.commit('CHANGE_COUNT');
-            this.selectedTotalPrice = 0;
+            if(this.selectedGoods.length === 0) {
+                return Toast({
+                        message: '请选择商品后再进行付款！',
+                        duration: 1000
+                    });
+            }
+            MessageBox({
+                title: '提示',
+                message: '确定支付吗?',
+                showCancelButton: true
+            }).then(action => {
+                console.log('action', action);
+                if (action === 'confirm') {
+                    Toast({
+                        message: '支付成功！',
+                        duration: 1000
+                    });
+                    this.$store.commit('CLEAR_PAYGOODS');
+                    this.$store.commit('CHANGE_TOTAL_PRICE');
+                    this.$store.commit('CHANGE_COUNT');
+                }
+            });
         }
     },
     mounted() {
@@ -121,6 +142,14 @@ export default {
                 text-align: right; 
                 color:#4D4D4D;
             }
+        }
+        .empty {
+            height: 100%;
+            text-align: center;
+            line-height: 6.6667rem;
+            font-size: 24px;
+            color: #fff;
+            background-color: #FFAA00;
         }
     }
     .white-space {
