@@ -16,7 +16,7 @@ import Baseline from "@/public/_baseline.vue";
 import Footer from "@/components/detail/Footer.vue";
 
 // 引入请求方法和mock数据
-import {fetchDetail} from '@/http/url';
+import { fetchDetail } from '@/http/url';
 import { detail } from "@/http/mock.js";
 export default {
   data() {
@@ -32,7 +32,7 @@ export default {
   },
   methods: {
     getDetailData() {
-      fetchDetail({},({ data }) => {
+      fetchDetail({}, ({ data }) => {
         this.swiperData = data.swiper;
         this.contentData = data.content;
         this.selectData = data.view;
@@ -50,14 +50,6 @@ export default {
 </script>
 
 <style lang="less" scoped>
-.detail {
-  .v-select {
-    position: relative;
-    z-index: 10;
-  }
-  .v-footer {
-    z-index: 5;
-  }
-}
+
 
 </style>

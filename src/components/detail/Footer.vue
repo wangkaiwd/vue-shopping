@@ -7,7 +7,9 @@
     <div class="detail-cart">
       <mt-badge class="badge"
         size="small"
-        type="error">{{count}}</mt-badge>
+        type="error">
+          {{count}}
+      </mt-badge>
       <v-icon @click.native="goShopcart()"
         iconText="icon-feedback"></v-icon>
     </div>
@@ -53,11 +55,11 @@ export default {
       params.imgPath = this.$store.state.detail.productData.swiper.swiperList[0].imgPath;
       MessageBox({ title, message, showCancelButton: true }).then(action => {
         this.$store.dispatch('oprateProduct', true);
-        Utils.setItem('goodsList',params,true);
+        Utils.setItem('goodsList', params, true);
       });
     },
     goShopcart() {
-      this.$router.push({path:'/shopcart'});
+      this.$router.push({ path: '/shopcart' });
       this.$store.commit('RESET_CARLIST');
     }
   },

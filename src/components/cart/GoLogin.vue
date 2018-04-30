@@ -1,5 +1,5 @@
 <template>
-    <div class="gologin">
+    <div class="gologin" v-if="!isLogin">
         <span class="loginafter">登陆后享受更多优惠</span>
         <span class="go">
             <!-- 这里也需要精确匹配，否则会一直处于激活状态 -->
@@ -10,9 +10,13 @@
     </div>
 </template>
 <script>
-
+import Utils from '@/utils/storage'
 export default {
-    
+  data() {
+    return {
+      isLogin: Utils.getItem('userInfo'),
+    }
+  },
 }
 </script>
 

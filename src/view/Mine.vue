@@ -6,7 +6,7 @@
             </div>
             <div class="login">
                 <router-link to="/login">
-                    登录/注册
+                    {{isLogin}}
                 </router-link>
             </div>
         </div>
@@ -69,7 +69,21 @@
 import Icon from "@/public/_icon";
 import Baseline from "@/public/_baseline";
 import Tabbar from "@/public/_tabbar";
+import Utils from "@/utils/storage"
 export default {
+  data() {
+    return {
+
+    }
+  },
+  computed: {
+    isLogin() {
+      let text;
+      const userInfo = Utils.getItem('userInfo');
+      userInfo ? text = userInfo.username : text = "登录"
+      return text
+    }
+  },
   components: {
     "v-icon": Icon,
     "v-baseline": Baseline,
