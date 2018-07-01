@@ -2,10 +2,10 @@
     <div class="category-info">
         <div class="l-list">
             <ul>
-                <li 
-                    :class="{current:index === tabIndex }" 
-                    @click="handleClick(index)" 
-                    v-for="(item,index) in toCategoryInfo" 
+                <li
+                    :class="{current:index === tabIndex }"
+                    @click="handleClick(index)"
+                    v-for="(item,index) in toCategoryInfo"
                     :key="item.id">
                         {{item.title}}
                 </li>
@@ -15,8 +15,8 @@
         <div class="r-info" v-if="toCategoryInfo[tabIndex]">
             <div class="info-title">
                 <h3>{{toCategoryInfo[tabIndex].title}}</h3>
-            </div> 
-            <div class="infobody">
+            </div>
+            <div class="infobody content">
                 <div class="info-col" @click="$router.push({path:'/detail'})" v-for="item in toCategoryInfo[tabIndex].list" :key="item.id">
                     <div class="info-img">
                         <img :src="item.imgPath" alt="">
@@ -31,6 +31,7 @@
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 export default {
   props: ["toCategoryInfo"],
   data() {

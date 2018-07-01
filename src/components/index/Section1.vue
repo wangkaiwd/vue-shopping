@@ -1,7 +1,7 @@
 <template>
     <div class="section1">
         <h2 class="section1-title">
-          section1
+            零食小吃
           <v-icon class="section1-icon" iconText="icon-mian"></v-icon>
         </h2>
         <div class="section1-item clearfix">

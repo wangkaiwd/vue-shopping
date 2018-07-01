@@ -1,18 +1,18 @@
 <template>
     <div class="header">
         <header class="otherheader">
-            <router-link 
-              v-if="$route.matched[0].path=='/category'" 
-              to='/' 
+            <router-link
+              v-if="$route.matched[0].path=='/category'"
+              to='/'
               exact>
-                <v-icon  
-                  class="otherheader-icon" 
+                <v-icon
+                  class="otherheader-icon"
                   iconText="icon-fanhui">
                 </v-icon>
             </router-link>
-            <v-icon 
-              @click.native="$router.go(-1)" 
-              class="otherheader-icon" 
+            <v-icon
+              @click.native="$router.go(-1)"
+              class="otherheader-icon"
               iconText="icon-fanhui"
               v-else>
             </v-icon>
@@ -32,9 +32,6 @@ export default {
 <style lang="less">
 .header {
   .otherheader {
-    // position: fixed;
-    // left: 0;
-    // top: 0;
     position: relative;
     width: 100%;
     height: 1.12rem;

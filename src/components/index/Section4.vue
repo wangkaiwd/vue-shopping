@@ -1,7 +1,7 @@
 <template>
     <div class="section4">
         <h2 class="section4-title">
-          section4
+          个护优品
           <v-icon class="section4-icon" iconText="icon-xiangyoujiantou"></v-icon>
         </h2>
         <div class="section4-item clearfix">

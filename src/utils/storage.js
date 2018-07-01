@@ -1,5 +1,10 @@
-// 将内容存到localStorage中
-
+/*
+ * @Author: wangkai
+ * @Date: 2018-05-05 09:53:35
+ * @Last Modified by: wangkai
+ * @Last Modified time: 2018-05-05 09:54:54
+ * @Desc: 浏览器存储localStorage操作
+ */
 
 export default {
   /**

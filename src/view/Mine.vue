@@ -4,10 +4,13 @@
             <div class="icon-person">
                 <v-icon iconText="icon-shouye"></v-icon>
             </div>
-            <div class="login">
+            <div class="login" v-if="isLogin !== '登录'">
                 <router-link to="/login">
                     {{isLogin}}
                 </router-link>
+            </div>
+            <div class="login" v-else>
+              {{isLogin}}
             </div>
         </div>
         <div class="order">

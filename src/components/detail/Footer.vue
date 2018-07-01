@@ -40,22 +40,26 @@ export default {
   }),
   methods: {
     joinCart() {
+      const params = {};
+      params.title = this.views.title;
+      params.size = this.views.chose[this.sizeSelected].size;
+      params.price = this.views.price * ((this.sizeSelected + 1) / 2);
+      // console.log('price', params);
+      // debugger
+      params.col = this.views.chose[this.colSelected].col;
+      params.imgPath = this.$store.state.detail.productData.swiper.swiperList[0].imgPath;
       const title = '提示';
       const message = `商品名称：${this.views.title}<br />
-        价格：${this.views.price}<br />
+        价格：${params.price}<br />
         规格：${this.views.chose[this.sizeSelected].size}<br />
         颜色：${this.views.chose[this.colSelected].col}<br />
         商品ID：${this.views.id}
       `
-      const params = {};
-      params.title = this.views.title;
-      params.price = this.views.price;
-      params.col = this.views.chose[this.colSelected].col;
-      params.size = this.views.chose[this.sizeSelected].size;
-      params.imgPath = this.$store.state.detail.productData.swiper.swiperList[0].imgPath;
       MessageBox({ title, message, showCancelButton: true }).then(action => {
-        this.$store.dispatch('oprateProduct', true);
-        Utils.setItem('goodsList', params, true);
+        if (action === 'confirm') {
+          this.$store.dispatch('oprateProduct', true);
+          Utils.setItem('goodsList', params, true);
+        }
       });
     },
     goShopcart() {
